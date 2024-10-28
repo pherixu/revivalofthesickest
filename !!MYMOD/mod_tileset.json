@@ -70,7 +70,7 @@
       
         "file": "mindflayer1.png",
         "tiles": [
-          { "id": "mon_zombie", "fg": 6, "rotates": false }
+          { "id": "mon_tester", "fg": 6, "rotates": false }
         ],
         "//": "range 1 to 1",
         "sprite_width": 56,
