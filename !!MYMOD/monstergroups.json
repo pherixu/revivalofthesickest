@@ -41,8 +41,8 @@
       { "monster": "mon_collector", "freq": 1, "cost_multiplier": 1, "starts": 333 },
       { "monster": "mon_ninja", "freq": 1, "cost_multiplier": 1, "starts": 333, "pack_size": [ 2, 9 ]  },
       { "monster": "mon_ninja", "freq": 1, "cost_multiplier": 35, "starts": 888, "pack_size": [ 5, 15 ]  },
-      { "monster": "mon_monk", "freq": 1, "cost_multiplier": 1, "starts": 333, "pack_size": [ 2, 5 ]  },
-      { "monster": "mon_monk", "freq": 1, "cost_multiplier": 35, "starts": 888, "pack_size": [ 3, 12 ]  },
+      { "monster": "mon_monk_disciple", "freq": 1, "cost_multiplier": 1, "starts": 333, "pack_size": [ 2, 5 ]  },
+      { "monster": "mon_monk_disciple", "freq": 1, "cost_multiplier": 35, "starts": 888, "pack_size": [ 3, 12 ]  },
       { "monster": "mon_shadow_snake", "freq": 13, "cost_multiplier": 1, "pack_size": [ 4, 12 ]  }
     ]
   }
