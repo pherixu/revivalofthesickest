@@ -1,0 +1,1347 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "sanguinarium_enchant",
+	"furniture": [
+  {
+    "result": [ "f_black_crucible" ],
+    "valid_furniture": [ "f_sanguinarium" ],
+   "message": "shadow buildin time"
+  }
+]
+
+  },
+  
+  {
+    "id": "spell_components_magicmirror",
+    "type": "requirement",
+    "components": [
+      [ [ "raw_bloodgem", 1 ] ],
+      [ [ "glass_shard", 3 ] ],
+      [ [ "spirit_salt", 1 ] ],
+      [ [ "argentium", 1 ],[ "viridite", 1 ],[ "crimsonite", 1 ],[ "ceruleum", 1 ] ]
+    ]
+  },
+  {
+    "id": "spell_components_soulash",
+    "type": "requirement",
+    "components": [ [ [ "soul_ash", 1 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_altarenchant",
+    "type": "requirement",
+    "components": [ [ [ "spirit_salt", 1 ] ], [ [ "viridite", 1 ] ],[ [ "crimsonite", 1 ] ],[ [ "argentium", 1 ] ],[ [ "ceruleum", 1 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_sanguinarium",
+    "type": "requirement",
+    "components": [ [ [ "raw_bloodgem", 5 ] ], [ [ "ritual_blood", 10 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_iounvirid",
+    "type": "requirement",
+    "components": [ [ [ "viridite", 1 ] ],[ [ "iounizer", 1 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_iouncrimson",
+    "type": "requirement",
+    "components": [ [ [ "crimsonite", 1 ] ],[ [ "iounizer", 1 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_iounceruleum",
+    "type": "requirement",
+    "components": [ [ [ "ceruleum", 1 ] ],[ [ "iounizer", 1 ] ] ]
+  },
+  
+  {
+    "id": "spell_components_iounargent",
+    "type": "requirement",
+    "components": [ [ [ "argentium", 1 ] ],[ [ "iounizer", 1 ] ] ]
+  },
+  
+  
+  {
+    "id": "magic_mirror_tele",
+    "type": "SPELL",
+    "name": { "str": "Magic Mirror Spell" },
+    "description": "Translocates the user to an attuned gate.",
+    "valid_targets": [ "self" ],
+    "effect": "translocate",
+    "difficulty": 15,
+    "max_level": 35,
+    "base_casting_time": 200,
+    "base_energy_cost": 675,
+    "energy_source": "MANA",
+    "spell_class": "NONE"
+  },
+  
+  
+  {
+    "id": "iounize_viridite",
+    "type": "SPELL",
+    "name": { "str": "Iounize Viridite" },
+    "description": "Combine an iounizer apparatus and an elemental crystal together to get an Ioun Stone",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "PERMANENT", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "components": "spell_components_iounvirid",
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "ioun_virid",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 1,
+    "max_duration": 1,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "iounize_crimsonite",
+    "type": "SPELL",
+    "name": { "str": "Iounize Crimsonite" },
+    "description": "Combine an iounizer apparatus and an elemental crystal together to get an Ioun Stone",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "PERMANENT", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "components": "spell_components_iouncrimson",
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "ioun_crimson",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 1,
+    "max_duration": 1,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "iounize_argentium",
+    "type": "SPELL",
+    "name": { "str": "Iounize Argentium" },
+    "description": "Combine an iounizer apparatus and an elemental crystal together to get an Ioun Stone",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "PERMANENT", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "components": "spell_components_iounargent",
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "ioun_argent",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 1,
+    "max_duration": 1,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "iounize_ceruleum",
+    "type": "SPELL",
+    "name": { "str": "Iounize Ceruleum" },
+    "description": "Combine an iounizer apparatus and an elemental crystal together to get an Ioun Stone",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "PERMANENT", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "components": "spell_components_iounceruleum",
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "ioun_ceruleum",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 1,
+    "max_duration": 1,
+    "duration_increment": 3000
+  },
+  {
+    "id": "enchant_sanguinarium",
+    "type": "SPELL",
+    "name": { "str": "Enchant Sanguinarium" },
+    "description": "I cast Enchant at the sanguinarium!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "components": "spell_components_sanguinarium",
+    "difficulty": 1,
+    "max_level": 1,
+    "base_casting_time": 100,
+    "energy_source": "MANA",
+    "effect_str": "sanguinarium_enchant",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "brazier_enchant",
+	"furniture": [
+  {
+    "result": [ "f_soul_censer" ],
+    "valid_furniture": [ "f_brazier" ],
+   "message": "brazier buildin time"
+  }
+]
+
+  },
+  
+  
+  
+  {
+    "id": "enchant_mirror",
+    "type": "SPELL",
+    "name": { "str": "Enchant Mirror" },
+    "description": "I cast Enchant at the mirror!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "components": "spell_components_magicmirror",
+    "difficulty": 1,
+    "max_level": 1,
+    "base_casting_time": 100,
+    "energy_source": "MANA",
+    "effect_str": "mirror_enchant",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "mirror_enchant",
+	"furniture": [
+  {
+    "result": [ "f_magic_mirror" ],
+    "valid_furniture": [ "f_bigmirror_b" ],
+   "message": "magic mirror buildin time"
+  }
+]
+
+  },
+  
+  
+  
+  
+  {
+    "id": "enchant_brazier",
+    "type": "SPELL",
+    "name": { "str": "Enchant Brazier" },
+    "description": "I cast Enchant at the brazier!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "difficulty": 1,
+    "max_level": 1,
+    "base_casting_time": 100,
+    "components": "spell_components_soulash",
+    "energy_source": "MANA",
+    "effect_str": "brazier_enchant",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "stove_enchant",
+	"furniture": [
+  {
+    "result": [ "f_soul_stove" ],
+    "valid_furniture": [ "f_woodstove" ],
+   "message": "stove buildin time"
+  }
+]
+
+  },
+  
+  {
+    "id": "enchant_stove",
+    "type": "SPELL",
+    "name": { "str": "Enchant Wood Stove" },
+    "description": "I cast Enchant at the stove!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "difficulty": 1,
+    "max_level": 22,
+    "base_casting_time": 100,
+    "energy_source": "MANA",
+    "effect_str": "stove_enchant",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "altar_enchant",
+	"furniture": [
+  {
+    "result": [ "f_enchanted_altar" ],
+    "valid_furniture": [ "f_soul_altar" ],
+   "message": "Altar cleansing time"
+  }
+]
+
+  },
+  
+  {
+    "id": "enchant_altar",
+    "type": "SPELL",
+    "name": { "str": "Enchant Soul Altar" },
+    "description": "I cast Enchant at the altar!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "difficulty": 1,
+    "max_level": 22,
+    "base_casting_time": 100,
+    "components": "spell_components_altarenchant",
+    "energy_source": "MANA",
+    "effect_str": "altar_enchant",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "altar_cleanse",
+	"furniture": [
+  {
+    "result": [ "f_soul_altar" ],
+    "valid_furniture": [ "f_corrupted_soul_altar" ],
+   "message": "Altar cleansing time"
+  }
+]
+
+  },
+  
+  {
+    "id": "cleanse_altar",
+    "type": "SPELL",
+    "name": { "str": "Exorcize Corrupted Altar" },
+    "description": "I cast Exorcize at the altar!",
+    "valid_targets": [ "ground" ],
+    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "SILENT" ],
+    "min_damage": 1,
+    "damage_increment": 1.5,
+    "damage_type": "none",
+    "max_damage": 1,
+    "min_range": 10,
+    "range_increment": 0.8,
+    "max_range": 39,
+    "base_energy_cost": 50,
+    "difficulty": 1,
+    "max_level": 22,
+    "base_casting_time": 100,
+    "components": "spell_components_soulash",
+    "energy_source": "MANA",
+    "effect_str": "altar_cleanse",
+    "effect": "ter_transform"
+  },
+  {
+    "type": "GENERIC",
+    "id": "broken_soulaltar",
+    "name": { "str": "corrupted soul altar", "str_pl": "corrupted soul altar" },
+    "description": "A rune pedestal originally made for soulcrafting, but has since been maligned and corrupted by dark magic.",
+    "weight": "23000 g",
+    "looks_like": "mon_blood_sacrifice",
+    "material": [ "alien_resin" ],
+    "bashing": 8,
+    "price": "400 USD",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_corrupted_soul_altar" },
+    "copy-from": "v_table"
+  },
+  {
+    "type": "GENERIC",
+    "id": "crystal_circle",
+    "name": { "str": "crystal transmutation circle", "str_pl": "crystal transmutation circle" },
+    "description": "A sturdy workbench built out of metal.  It is perfect for crafting large and heavy things.",
+    "weight": "23000 g",
+    "material": [ "alien_resin" ],
+    "bashing": 8,
+    "price": "400 USD",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_crystal_circle" },
+    "copy-from": "v_table"
+  },
+  {
+    "type": "GENERIC",
+    "id": "portcrystal",
+    "name": { "str": "portcrystal" },
+    "description": "A marker to be placed anywhere one might wish to return; use of a ferrystone will transport you there in an instant. Traversal item.",
+    "weight": "23000 g",
+    "material": [ "alien_resin" ],
+    "bashing": 8,
+    "price": "400 USD",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_portcrystal" },
+    "copy-from": "v_table"
+  },
+  {
+    "type": "construction_group",
+    "id": "place_circle",
+    "name": "Place Crystal Circle"
+  },
+  {
+    "type": "construction",
+    "id": "constr_place_circle",
+    "group": "place_circle",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 1 ] ],
+    "time": "1 m",
+    "components": [ [ [ "crystal_circle", 1 ] ] ],
+    "pre_special": "check_empty",
+    "dark_craftable": true,
+    "post_furniture": "f_crystal_circle"
+  },
+  
+  {
+    "type": "construction_group",
+    "id": "place_portcrystal",
+    "name": "Place Portcrystal"
+  },
+  {
+    "type": "construction",
+    "id": "constr_place_portcrystal",
+    "group": "place_portcrystal",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 1 ] ],
+    "time": "1 m",
+    "components": [ [ [ "portcrystal", 1 ] ] ],
+    "pre_special": "check_empty",
+    "dark_craftable": true,
+    "post_furniture": "f_portcrystal"
+  },
+  
+  
+  
+  {
+    "type": "construction_group",
+    "id": "build_bonfire",
+    "name": "Build Ascetic Bonfire"
+  },
+  {
+    "type": "construction",
+    "id": "constr_bonfire",
+    "group": "build_bonfire",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 6 ] ],
+    "time": "120 m",
+    "components": [
+      [ [ "soul_ash", 1 ] ],
+      [ [ "stick", 4 ] ],
+      [ [ "rock", 20 ] ]
+    ],
+    "pre_special": "check_empty",
+    "post_furniture": "f_ascetic_bonfire"
+  },
+  
+  
+  {
+    "type": "construction_group",
+    "id": "build_crystal_circle",
+    "name": "Build Crystal Transmutation Circle"
+  },
+  {
+    "type": "construction",
+    "id": "constr_crystalcircle",
+    "group": "build_crystal_circle",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 3 ] ],
+    "time": "120 m",
+    "qualities": [
+      [ { "id": "SOULCRAFT", "level": 1 } ]
+    ],
+    "components": [
+      [ [ "raw_bloodgem", 3 ] ],
+      [ [ "spirit_salt", 6 ] ],
+      [ [ "argentium", 1 ],[ "viridite", 1 ],[ "crimsonite", 1 ],[ "ceruleum", 1 ] ]
+    ],
+    "pre_special": "check_empty",
+    "post_furniture": "f_crystal_circle"
+  },
+  {
+    "type": "construction_group",
+    "id": "build_sanguinarium",
+    "name": "Build Sanguinarium"
+  },
+  {
+    "type": "construction",
+    "id": "constr_sanguinarium",
+    "group": "build_sanguinarium",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 6 ] ],
+    "time": "120 m",
+    "qualities": [
+      [ { "id": "CURSED", "level": 1 } ]
+    ],
+    "components": [
+      [ [ "ritual_blood", 3 ] ],
+      [ [ "argentium", 1 ],[ "viridite", 1 ],[ "crimsonite", 1 ],[ "ceruleum", 1 ] ]
+    ],
+    "pre_special": "check_empty",
+    "post_furniture": "f_sanguinarium"
+  },
+  {
+    "type": "construction_group",
+    "id": "build_matrix",
+    "name": "Build Crystal Fusion Matrix"
+  },
+  {
+    "type": "construction",
+    "id": "constr_matrix",
+    "group": "build_matrix",
+    "category": "FURN",
+    "required_skills": [ [ "spellcraft", 10 ] ],
+    "time": "120 m",
+    "qualities": [
+      [ { "id": "TRANSMUTATION", "level": 1 } ],
+      [ { "id": "SOUL_FORGE", "level": 1 } ],
+      [ { "id": "CLEANSING", "level": 1 } ],
+      [ { "id": "SOULCRAFT", "level": 1 } ]
+    ],
+    "components": [
+      [ [ "ritual_blood", 3 ] ],
+      [ [ "argentium", 1 ],[ "viridite", 1 ],[ "crimsonite", 1 ],[ "ceruleum", 1 ] ]
+    ],
+    "pre_special": "check_empty",
+    "post_furniture": "f_sanguinarium"
+  },
+  {
+    "type": "tool_quality",
+    "id": "SOUL_BURN",
+    "name": { "str": "soul-burning" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "CLEANSING",
+    "name": { "str": "soul cleansing" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "DIVINE_STATUE",
+    "name": { "str": "divinity statue" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "TRANSMUTATION",
+    "name": { "str": "transmutation" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "BLOOD_FORGE",
+    "name": { "str": "blood forgery" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "SOULCRAFT",
+    "name": { "str": "soul chanelling" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "SOUL_FORGE",
+    "name": { "str": "spirit forgery" },
+    "//": "Meant to represent a wide range of chemical functions to increase the concentration of a substance without changing state or solvent.",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "FUSION",
+    "name": { "str": "crystal fusion" },
+    "//": "A further expansion on crystals and imbuing their power into objects. most recipes require this and .",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "SHADOWCRAFT",
+    "name": { "str": "shadow weaving" },
+    "//": "A further expansion on crystals and imbuing their power into objects. most recipes require this and .",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "CURSED",
+    "name": { "str": "hexxing" },
+    "//": "A further expansion on crystals and imbuing their power into objects. most recipes require this and .",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "tool_quality",
+    "id": "CORRUPT",
+    "name": { "str": "corruption" },
+    "//": "A further expansion on crystals and imbuing their power into objects. most recipes require this and .",
+    "//2": "Good examples might be rotary evaporation or centrifugation"
+  },
+  {
+    "type": "furniture",
+    "id": "f_enchanted_altar",
+    "looks_like": "f_exodii_scanner",
+    "name": "Enchanted Soul-Forge Altar",
+    "symbol": "&",
+    "description": "A soul altar with further magical enhancements to allow for more potent rituals and recipes to be crafted.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_forgealtar" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_forgealtar",
+    "copy-from": "fake_item",
+    "looks_like": "f_exodii_scanner",
+    "type": "TOOL",
+    "name": "enchanted soul-forge altar",
+    "qualities": [ [ "SOULCRAFT", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_soul_stove",
+    "looks_like": "f_woodstove",
+    "name": "Soul Stove",
+    "symbol": "&",
+    "description": "An enchanted stove capable of burning decaying souls for crafting purposes.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_soulstove" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_soulstove",
+    "copy-from": "fake_item",
+    "looks_like": "f_woodstove",
+    "type": "TOOL",
+    "name": "soul stove",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "SOUL_BURN", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_soul_censer",
+    "looks_like": "f_brazier",
+    "name": "Soul-Pyre Censer",
+    "symbol": "&",
+    "description": "A brazier with protective wards inlaid onto it's construction, making it capable of performing cleansing rites on decaying souls.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_soulcenser" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_soulcenser",
+    "copy-from": "fake_item",
+    "looks_like": "f_brazier",
+    "type": "TOOL",
+    "name": "soul-pyre censer",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "SOUL_BURN", 2 ],[ "CLEANSING", 1 ] ]
+  },
+  
+  
+  {
+    "type": "furniture",
+    "id": "f_sanguinarium",
+    "looks_like": "t_pedestal_temple",
+    "name": "Sanguinarium",
+    "symbol": "&",
+    "description": "A ciborium filled with magical blood atop a stone pedestal, used to perform blood-forgery rites.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_sanguinarium" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_sanguinarium",
+    "copy-from": "fake_item",
+    "looks_like": "t_pedestal_temple",
+    "type": "TOOL",
+    "name": "sanguinarium",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "BLOOD_FORGE", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_black_crucible",
+    "looks_like": "tr_telepad",
+    "name": "Black Blood Crucible",
+    "symbol": "&",
+    "description": "A cauldron steeped with abyssal magic making the ritual blood within appear pitch-black.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_crucible" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_crucible",
+    "copy-from": "fake_item",
+    "looks_like": "tr_telepad",
+    "type": "TOOL",
+    "name": "black blood crucible",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "BLOOD_FORGE", 2 ],["SHADOWCRAFT", 1] ]
+  },
+  
+  
+  
+  {
+    "type": "furniture",
+    "id": "f_magic_mirror",
+    "looks_like": "f_bigmirror",
+    "name": "Magic Mirror",
+    "symbol": "{",
+    "description": "A magical mirror with the ability to recall you to any teleportation anchor",
+    "color": "white",
+    "move_cost_mod": 2,
+    "coverage": 80,
+    "required_str": 5,
+	"examine_action": "use_furn_fake_item",
+    "crafting_pseudo_item": [ "fake_magicmirror" ],
+    "flags": [ "NOITEM", "BLOCKSDOOR" ],
+    "bash": {
+      "str_min": 5,
+      "str_max": 16,
+      "sound": "glass breaking",
+      "sound_fail": "whack!",
+      "sound_vol": 16,
+      "furn_set": "f_bigmirror_b",
+      "items": [ { "item": "glass_shard", "count": [ 3, 6 ] } ],
+      "//": "destroy_threshold equal to str_min as fragile glass breaks into standing mirror frame, reduction matches that of broken mirror",
+      "ranged": { "reduction": [ 4, 8 ], "destroy_threshold": 5 }
+    }
+  },
+  
+  {
+    "id": "fake_magicmirror",
+    "copy-from": "fake_item",
+    "looks_like": "f_bigmirror",
+    "type": "TOOL",
+    "name": "magic mirror",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 0,
+    "use_action": [
+     { "type": "cast_spell", "spell_id": "magic_mirror_tele", "no_fail": true, "level": 35, "need_wielding": false }
+    ]
+  },
+  
+  
+  {
+    "type": "furniture",
+    "id": "f_portcrystal",
+    "looks_like": "f_glow_boulder",
+    "name": "Portcrystal",
+    "move_cost_mod": 0,
+    "symbol": "X",
+    "description": "A marker to be placed anywhere one might wish to return; use of a ferrystone will transport you there in an instant. Traversal item.",
+    "color": "light_gray",
+    "required_str": 25,
+    "flags": [ "TRANSLOCATOR", "MOUNTABLE","EASY_DECONSTRUCT", "ALLOW_FIELD_EFFECT" ],
+    "deconstruct": { "items": [ { "item": "portcrystal", "count": 1 } ] },
+    "examine_action": "translocator"
+  },
+  
+  
+  {
+    "type": "furniture",
+    "id": "f_crystal_circle",
+    "looks_like": "f_magic_circle",
+    "name": "Crystal Transmutation Circle",
+    "symbol": "&",
+    "description": "3 bloodgems with a 4th more potent elemental crystal used as a focusing catalyst for crystal transmutation recipes",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_crystalcircle" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "crystal_circle", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_crystalcircle",
+    "copy-from": "fake_item",
+    "looks_like": "f_magic_circle",
+    "type": "TOOL",
+    "name": "crystal transmutation circle",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "TRANSMUTATION", 1 ] ]
+  },
+  
+  {
+    "type": "furniture",
+    "id": "f_ascetic_bonfire",
+    "looks_like": "f_firering",
+    "name": "Ascetic Bonfire",
+    "move_cost_mod": 0,
+    "symbol": "X",
+    "description": "A soul-linked shrine that acts as a teleportation anchor.",
+    "color": "light_gray",
+    "required_str": 25,
+    "flags": [ "TRANSLOCATOR", "MOUNTABLE", "ALLOW_FIELD_EFFECT" ],
+    "examine_action": "translocator"
+  },
+  
+  {
+    "type": "furniture",
+    "id": "f_corruption_chamber",
+    "looks_like": "f_exodii_generator_2",
+    "name": "Corruption Chamber",
+    "symbol": "&",
+    "description": "A collection of magical pylons surrounding a chamber, which the rods focus corrupted energy into.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_chamber" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_chamber",
+    "copy-from": "fake_item",
+    "looks_like": "f_exodii_generator_2",
+    "type": "TOOL",
+    "name": "corruption chamber",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "CORRUPT", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_crystal_matrix",
+    "looks_like": "f_exodii_generator_4",
+    "name": "Crystal Fusion Matrix",
+    "symbol": "&",
+    "description": "A complex magical apparatus used to combine magical crystals into functional mechanisms.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_matrix" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_matrix",
+    "copy-from": "fake_item",
+    "looks_like": "f_exodii_generator_4",
+    "type": "TOOL",
+    "name": "crystal fusion matrix",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "FUSION", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_soul_altar",
+    "looks_like": "f_birdbath",
+    "name": "Soul Altar",
+    "symbol": "&",
+    "description": "A magically-fortified altar meant for performing rituals relating to soul magic.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_soulaltar" ],
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": { "items": [ { "item": "workbench", "count": 1 } ] },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "Stone crumbles!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "raw_bloodgem", "charges": [ 1, 2 ] },
+        { "item": "raw_bloodgem", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_soulaltar",
+    "copy-from": "fake_item",
+    "looks_like": "f_birdbath",
+    "type": "TOOL",
+    "name": "soul altar",
+    "magazine_well": "250 ml",
+    "initial_charges": 1,
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": ["VORTEX",
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false }
+    ],
+    "qualities": [ [ "SOULCRAFT", 2 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_corrupted_soul_altar",
+    "looks_like": "mon_blood_sacrifice",
+    "name": "Corrupted Soul Altar",
+    "symbol": "&",
+    "description": "A soul-forging altar that has been corrupted by an evil presence. The magically preserved corpse atop the pedestal holds an ever-decaying soul used for magical rituals",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 30,
+    "required_str": -1,
+    "crafting_pseudo_item": [ "fake_soulaltar" ],
+	"examine_action": "use_furn_fake_item",
+    "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
+    "deconstruct": {
+      "items": [
+        { "item": "solder_wire", "charges": 20 },
+        { "item": "press_workbench_item", "count": 1 },
+        { "item": "cable", "charges": 5 }
+      ]
+    },
+    "bash": {
+      "str_min": 10,
+      "str_max": 40,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "solder_wire", "charges": [ 10, 20 ] },
+        { "item": "solder_wire", "charges": [ 2, 4 ] },
+        { "count": [ 1, 3 ], "item": "steel_lump" },
+        { "count": [ 1, 3 ], "item": "steel_chunk" },
+        { "count": [ 1, 3 ], "item": "scrap" },
+        { "charges": 0, "item": "hotplate", "prob": 50 },
+        { "charges": 0, "item": "press", "prob": 50 }
+      ],
+      "ranged": { "reduction": [ 5, 10 ], "destroy_threshold": 40, "block_unaimed_chance": "25%" }
+    }
+  },
+  {
+    "id": "fake_cursedaltar",
+    "copy-from": "fake_item",
+    "looks_like": "mon_blood_sacrifice",
+    "type": "TOOL",
+    "name": "corrupted soul altar",
+    "magazine_well": "250 ml",
+    "use_action": [
+     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false },
+      {
+        "menu_text": "Adjust Focusing Wavelength (red)",
+        "type": "transform",
+        "target": "fake_soulaltar3",
+        "msg": "Adjust the magical frequencies your circle is attuned to, currently green."
+      }
+    ],
+    "qualities": [ [ "SOULCRAFT", 1 ] ]
+  },
+  
+  {
+    "id": "fake_soulaltar3",
+    "copy-from": "fake_item",
+    "looks_like": "mon_blood_sacrifice",
+    "type": "TOOL",
+    "name": "corrupted soul altar",
+    "magazine_well": "250 ml",
+    "use_action": [
+     { "type": "cast_spell", "spell_id": "spawn_crimsonite", "no_fail": true, "level": 1, "need_wielding": false },
+      {
+        "menu_text": "Adjust Focusing Wavelength (blue)",
+        "type": "transform",
+        "target": "fake_soulaltar4",
+        "msg": "Adjust the magical frequencies your circle is attuned to, currently red."
+      }
+    ],
+    "qualities": [ [ "SOUL_BURN", 1 ] ]
+  },
+  
+
+  {
+    "id": "fake_soulaltar4",
+    "copy-from": "fake_item",
+    "looks_like": "mon_blood_sacrifice",
+    "type": "TOOL",
+    "name": "corrupted soul altar",
+    "magazine_well": "250 ml",
+  "use_action": [ "MEDITATE",
+     { "type": "cast_spell", "spell_id": "spawn_ceruleum", "no_fail": true, "level": 1, "need_wielding": false },
+      {
+        "menu_text": "Adjust Focusing Wavelength (white)",
+        "type": "transform",
+        "target": "fake_soulaltar",
+        "msg": "Adjust the magical frequencies your circle is attuned to, currently blue."
+      }
+    ],
+    "qualities": [ [ "SOUL_BURN", 1 ] ]
+  },
+  
+  {
+    "id": "spawn_argentium",
+    "type": "SPELL",
+    "name": { "str": "Spawn Argentium" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "components": "spell_components_soulash",
+    "effect_str": "argentium",
+    "extra_effects": [ { "id": "hurt_crystal","hit_self": true } ],
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "hurt_crystal",
+    "type": "SPELL",
+    "name": { "str": "Spawn Argentium" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 20,
+    "max_damage": 20,
+    "effect": "target_attack",
+    "energy_source": "STAMINA",
+	"affected_body_parts": [
+    "HEAD",
+    "TORSO",
+    "MOUTH",
+    "EYES",
+    "ARM_L",
+    "ARM_R",
+    "HAND_R",
+    "HAND_L",
+    "LEG_L",
+    "FOOT_L",
+    "FOOT_R"
+  ], 
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 1000,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  }
+  ,
+  
+  {
+    "id": "spawn_bloodgem",
+    "type": "SPELL",
+    "name": { "str": "Spawn Raw Bloodgem" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "raw_bloodgem",
+    "extra_effects": [ { "id": "hurt_crystal","hit_self": true } ],
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  },
+
+  {
+    "id": "spawn_viridite",
+    "type": "SPELL",
+    "name": { "str": "Spawn Argentium" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "viridite",
+    "extra_effects": [ { "id": "hurt_crystal","hit_self": true } ],
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "spawn_crimsonite",
+    "type": "SPELL",
+    "name": { "str": "Spawn Crimsonite" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "crimsonite",
+    "extra_effects": [ { "id": "hurt_crystal","hit_self": true } ],
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  },
+  
+  {
+    "id": "spawn_ceruleum",
+    "type": "SPELL",
+    "name": { "str": "Spawn Ceruleum" },
+    "description": "A temporary defensive barrier formed from a charge of bloodshot",
+    "valid_targets": [ "self" ],
+    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_EXPLOSION_VFX" ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "spawn_item",
+    "effect_str": "ceruleum",
+    "extra_effects": [ { "id": "hurt_crystal","hit_self": true } ],
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 5,
+    "base_casting_time": 100,
+    "base_energy_cost": 10,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "duration_increment": 3000
+  }
+]

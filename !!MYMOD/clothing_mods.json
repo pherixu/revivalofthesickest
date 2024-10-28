@@ -1,0 +1,67 @@
+[
+
+  {
+    "id": "crystal_plated",
+    "type": "json_flag",
+    "context": [ "ARMOR", "TOOL_ARMOR" ],
+    "info": "This clothing has an owlbear fur lining sewn into it to <good>greatly increase</good> its overall <info>warmth</info>."
+  },
+  {
+    "id": "beskar_plated",
+    "type": "json_flag",
+    "context": [ "ARMOR", "TOOL_ARMOR" ],
+    "info": "This clothing has a demon chitin padding sewn into it to <good>greatly increase</good> its overall <info>fire resistance</info>."
+  },
+  {
+    "id": "rune_plated",
+    "type": "json_flag",
+    "context": [ "ARMOR", "TOOL_ARMOR" ],
+    "info": "This clothing has a demon chitin padding sewn into it to <good>greatly increase</good> its overall <info>fire resistance</info>."
+  },
+
+  {
+    "type": "clothing_mod",
+    "id": "rune_plated",
+    "flag": "rune_plated",
+    "item": "runeingot",
+    "implement_prompt": "Coat with rune",
+    "destroy_prompt": "Destroy rune plating",
+    "mod_value": [
+      { "type": "bash", "value": 2, "proportion": [ "thickness" ] },
+      { "type": "cut", "value": 2, "proportion": [ "thickness" ] },
+      { "type": "bullet", "value": 4, "proportion": [ "thickness" ] },
+      { "type": "encumbrance", "value": 1, "proportion": [ "thickness", "coverage" ] },
+      { "type": "storage", "value": 20}
+    ]
+  },
+  {
+    "type": "clothing_mod",
+    "id": "crystal_plated",
+    "flag": "crystal_plated",
+    "item": "raw_bloodgem",
+    "implement_prompt": "Coat with crystals",
+    "destroy_prompt": "Destroy crystal coating",
+    "mod_value": [
+      { "type": "bash", "value": 1, "proportion": [ "thickness" ] },
+      { "type": "cut", "value": 1, "proportion": [ "thickness" ] },
+      { "type": "bullet", "value": 2, "proportion": [ "thickness" ] },
+      { "type": "encumbrance", "value": -10 },
+      { "type": "warmth", "value": 1, "proportion": [ "thickness", "coverage" ] }
+    ]
+  },
+  {
+    "type": "clothing_mod",
+    "id": "beskar_plated",
+    "flag": "beskar_plated",
+    "item": "beskar",
+    "implement_prompt": "Plate with beskar",
+    "destroy_prompt": "Destroy beskar plating",
+    "mod_value": [
+      { "type": "bash", "value": 4, "proportion": [ "thickness" ] },
+      { "type": "cut", "value": 4, "proportion": [ "thickness" ] },
+      { "type": "bullet", "value": 9, "proportion": [ "thickness" ] },
+      { "type": "encumbrance", "value": 1, "round_up": true, "proportion": [ "thickness", "coverage" ] },
+      { "type": "warmth", "value": 1, "proportion": [ "thickness", "coverage" ] }
+    ]
+  }
+]

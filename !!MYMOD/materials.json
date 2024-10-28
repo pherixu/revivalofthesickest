@@ -1,0 +1,256 @@
+[
+  {
+    "type": "material",
+    "id": "beskar",
+    "name": "Beskar",
+    "density": 25,
+    "specific_heat_liquid": 1.01,
+    "specific_heat_solid": 1.01,
+    "latent_heat": 260,
+    "bash_resist": 7,
+    "cut_resist": 7,
+    "bullet_resist": 7,
+    "acid_resist": 50,
+    "fire_resist": 50,
+    "elec_resist": 50,
+    "chip_resist": 100,
+    "repaired_with": "beskar",
+    "salvaged_into": "beskar",
+    "dmg_adj": [ "dented", "bent", "smashed", "shattered" ],
+    "bash_dmg_verb": "dented",
+    "cut_dmg_verb": "scratched"
+  },
+  {
+    "type": "material",
+    "id": "rune",
+    "name": "Rune",
+    "density": 20,
+    "specific_heat_liquid": 1.01,
+    "specific_heat_solid": 1.01,
+    "latent_heat": 260,
+    "bash_resist": 6,
+    "cut_resist": 6,
+    "bullet_resist": 6,
+    "acid_resist": 88,
+    "fire_resist": 88,
+    "elec_resist": 88,
+    "chip_resist": 100,
+    "repaired_with": "runeingot",
+    "salvaged_into": "runeingot",
+    "dmg_adj": [ "dented", "bent", "smashed", "shattered" ],
+    "bash_dmg_verb": "dented",
+    "cut_dmg_verb": "scratched"
+  },
+  
+  
+  {
+    "type": "material",
+    "id": "argentium",
+    "name": "Argentium",
+    "density": 15,
+    "specific_heat_liquid": 0.52,
+    "specific_heat_solid": 0.52,
+    "latent_heat": 5200,
+    "reinforces": true,
+    "bash_resist": 10,
+    "cut_resist": 15,
+    "bullet_resist": 16,
+    "acid_resist": 17,
+    "fire_resist": 17,
+    "elec_resist": 40,
+    "chip_resist": 100,
+    "dmg_adj": [ "marked", "chipped", "cracked", "shattered" ],
+    "bash_dmg_verb": "chipped",
+    "cut_dmg_verb": "scratched"
+  },
+  
+  
+  {
+    "type": "material",
+    "id": "viridite",
+    "name": "Viridite",
+    "density": 15,
+    "specific_heat_liquid": 0.52,
+    "specific_heat_solid": 0.52,
+    "latent_heat": 5200,
+    "reinforces": true,
+    "bash_resist": 10,
+    "cut_resist": 15,
+    "bullet_resist": 16,
+    "acid_resist": 40,
+    "fire_resist": 17,
+    "elec_resist": 17,
+    "chip_resist": 100,
+    "dmg_adj": [ "marked", "chipped", "cracked", "shattered" ],
+    "bash_dmg_verb": "chipped",
+    "cut_dmg_verb": "scratched"
+  },
+  
+  {
+    "type": "material",
+    "id": "ceruleum",
+    "name": "Ceruleum",
+    "density": 15,
+    "specific_heat_liquid": 0.52,
+    "specific_heat_solid": 0.52,
+    "latent_heat": 5200,
+    "reinforces": true,
+    "bash_resist": 17,
+    "cut_resist": 17,
+    "bullet_resist": 24,
+    "acid_resist": 17,
+    "fire_resist": 20,
+    "elec_resist": 17,
+    "chip_resist": 100,
+    "dmg_adj": [ "marked", "chipped", "cracked", "shattered" ],
+    "bash_dmg_verb": "chipped",
+    "cut_dmg_verb": "scratched"
+  },
+  
+  
+  {
+    "type": "material",
+    "id": "crimsonite",
+    "name": "Crimsonite",
+    "density": 15,
+    "specific_heat_liquid": 0.52,
+    "specific_heat_solid": 0.52,
+    "latent_heat": 5200,
+    "reinforces": true,
+    "bash_resist": 10,
+    "cut_resist": 15,
+    "bullet_resist": 16,
+    "acid_resist": 17,
+    "fire_resist": 40,
+    "elec_resist": 17,
+    "chip_resist": 100,
+    "dmg_adj": [ "marked", "chipped", "cracked", "shattered" ],
+    "bash_dmg_verb": "chipped",
+    "cut_dmg_verb": "scratched"
+  },
+  
+  {
+    "type": "GENERIC",
+    "id": "runeingot",
+    "symbol": ",",
+    "color": "brown",
+    "name": { "str": "rune ingot", "str_pl": "rune ingots" },
+    "description": "A compact bar of magical metal.",
+    "price": "20 USD",
+    "price_postapoc": "5000 USD",
+    "material": [ "beskar" ],
+    "flags": [ "NO_SALVAGE" ],
+    "weight": "900 g",
+    "volume": "250 ml",
+    "category": "spare_parts",
+    "to_hit": -1,
+    "stackable": true
+  },
+  
+  {
+    "type": "GENERIC",
+    "id": "beskar",
+    "symbol": ",",
+    "color": "brown",
+    "name": { "str": "beskar ingot", "str_pl": "beskar ingots" },
+    "description": "A compact bar of otherworldly metal.",
+    "price": "20 USD",
+    "price_postapoc": "5000 USD",
+    "material": [ "beskar" ],
+    "flags": [ "NO_SALVAGE" ],
+    "weight": "900 g",
+    "volume": "250 ml",
+    "category": "spare_parts",
+    "to_hit": -1,
+    "stackable": true
+  },
+  
+  {
+    "id": "tailors_kit1",
+    "name": "tailor's kit TEST",
+    "copy-from": "tailors_kit",
+    "type": "TOOL",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_fabric",
+        "materials": [
+          "crimsonite",
+          "rune",
+          "cotton",
+          "beskar",
+          "leather",
+          "nylon",
+          "wool",
+          "fur",
+          "faux_fur",
+          "nomex",
+          "kevlar",
+          "neoprene",
+          "gutskin",
+          "black_dragon_hide",
+          "demon_chitin"
+        ],
+        "skill": "tailor",
+        "tool_quality": 1,
+        "cost_scaling": 0.1,
+        "move_cost": 800
+      },
+      {
+        "type": "sew_advanced",
+        "materials": [
+          "crimsonite",
+          "rune",
+          "cotton",
+          "beskar",
+          "leather",
+          "nylon",
+          "wool",
+          "fur",
+          "faux_fur",
+          "nomex",
+          "kevlar",
+          "neoprene",
+          "gutskin",
+          "plastic",
+          "kevlar_rigid"
+        ],
+        "skill": "tailor",
+        "clothing_mods": [ "crystal_plated", "rune_plated", "beskar_plated","leather_padded", "steel_padded", "kevlar_padded", "furred", "wooled", "owlbear_furred", "demonchitin_padded" ]
+      }
+    ]
+  },
+  {
+    "id": "magic_bezel",
+    "name": "Crystal-Infusion Bezel",
+    "copy-from": "tailors_kit",
+    "type": "TOOL",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_fabric",
+        "materials": [
+          "crimsonite",
+          "rune",
+          "cotton",
+          "beskar"
+        ],
+        "skill": "tailor",
+        "tool_quality": 1,
+        "cost_scaling": 0.1,
+        "move_cost": 800
+      },
+      {
+        "type": "sew_advanced",
+        "materials": [
+          "crimsonite",
+          "rune",
+          "cotton",
+          "beskar"
+        ],
+        "skill": "tailor",
+        "clothing_mods": [  "crystal_plated",  "rune_plated", "beskar_plated" ]
+      }
+    ]
+  }
+]

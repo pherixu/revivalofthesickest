@@ -1,0 +1,242 @@
+[
+  {
+    "id": "slug_scrolls",
+    "type": "item_group",
+    "items": [
+      [ "summon_scroll_smudged", 10 ],
+      [ "spell_scroll_bio_acidicspray", 35 ],
+      [ "spell_scroll_ethereal_grasp", 50 ],
+      [ "spell_scroll_druid_woodshaft", 50 ],
+      [ "spell_scroll_stonefist", 30 ],
+      [ "spell_scroll_eshaper_piercing_bolt", 40 ],
+      [ "spell_scroll_eshaper_rockbolt", 50 ],
+      [ "spell_scroll_biomancer_paralytic_dart", 40 ],
+      [ "spell_scroll_biomancer_visceral_projection", 40 ],
+      [ "spell_scroll_summon_wisps", 30 ],
+      [ "spell_scroll_pain_split", 25 ],
+      [ "spell_scroll_druid_veggrasp", 15 ],
+      [ "spell_scroll_druid_rootstrike", 20 ],
+      [ "spell_scroll_seismic_stomp", 10 ],
+      [ "spell_scroll_eshaper_shardspray", 15 ],
+      [ "spell_scroll_purification_seed", 20 ],
+      [ "spell_scroll_earthshaper_stoneskin", 20 ],
+      [ "spell_scroll_earthshaper_pillar", 15 ],
+      [ "spell_scroll_recover_mana", 1 ],
+      [ "spell_scroll_recover_pain", 1 ],
+      [ "spell_scroll_recover_fatigue", 1 ],
+      [ "spell_scroll_recover_stamina", 1 ],
+      [ "spell_scroll_eshaper_shardstorm", 9 ],
+      [ "spell_scroll_cats_grace", 4 ],
+      [ "spell_scroll_eagles_sight", 4 ],
+      [ "spell_scroll_ogres_strength", 4 ],
+      [ "spell_scroll_foxs_cunning", 4 ],
+      [ "spell_scroll_druidic_regrowth", 9 ],
+      [ "spell_scroll_druidic_healing", 4 ]
+    ]
+  },
+  
+  {
+    "id": "worm_scrolls",
+    "type": "item_group",
+    "items": [
+      [ "spell_scroll_bio_acidicspray", 35 ],
+      [ "spell_scroll_ethereal_grasp", 50 ],
+      [ "spell_scroll_necrotic_gaze", 30 ],
+      [ "spell_scroll_biomancer_visceral_projection", 40 ],
+      [ "spell_scroll_magic_missile", 35 ],
+      [ "spell_scroll_bio_grotesque", 20 ],
+      [ "spell_scroll_bio_fleshpouch", 20 ],
+      [ "spell_scroll_recover_mana", 9 ],
+      [ "spell_scroll_recover_pain", 2 ],
+      [ "spell_scroll_recover_fatigue", 2 ],
+      [ "spell_scroll_recover_stamina", 2 ],
+      [ "spell_scroll_crystallize_mana", 50 ],
+      [ "spell_scroll_gravity_well", 35 ],
+      [ "spell_scroll_magus_mana_bolt", 20 ],
+      [ "spell_scroll_magus_haste", 15 ],
+      [ "spell_scroll_magus_mana_beam", 15 ],
+      [ "spell_scroll_magus_mana_blast", 10 ],
+      [ "spell_scroll_magus_escape", 10 ],
+      [ "spell_scroll_animated_blade", 15 ],
+      [ "spell_scroll_mirror_image", 15 ],
+      [ "spell_scroll_cats_grace", 5 ],
+      [ "spell_scroll_eagles_sight", 5 ],
+      [ "spell_scroll_ogres_strength", 5 ],
+      [ "spell_scroll_foxs_cunning", 5 ],
+      [ "spell_scroll_dark_sight", 25 ]
+	
+	
+    ]
+  },
+  
+  {
+    "id": "toad_scrolls",
+    "type": "item_group",
+    "items": [
+      [ "spell_scroll_blinding_flash", 25 ],
+      [ "spell_scroll_cats_grace", 2 ],
+      [ "spell_scroll_eagles_sight", 2 ],
+      [ "spell_scroll_ogres_strength", 2 ],
+      [ "spell_scroll_foxs_cunning", 2 ],
+      [ "spell_scroll_taze", 25 ],
+      [ "spell_scroll_lightning_blast", 20 ],
+      [ "spell_scroll_jolt", 25 ],
+      [ "spell_scroll_lightning_bolt", 20 ],
+      [ "spell_scroll_windstrike", 40 ],
+      [ "spell_scroll_windrun", 35 ],
+      [ "spell_scroll_stormshaper_wall_of_fog", 25 ],
+      [ "spell_scroll_seismic_stomp", 20 ],
+      [ "spell_scroll_stormshaper_ionization", 5 ]
+	
+	
+    ]
+  },
+  
+  {
+    "id": "penguin_scrolls",
+    "type": "item_group",
+    "items": [
+      [ "spell_scroll_chilling_touch", 50 ],
+      [ "spell_scroll_blinding_flash", 25 ],
+      [ "spell_scroll_cats_grace", 2 ],
+      [ "spell_scroll_eagles_sight", 2 ],
+      [ "spell_scroll_ogres_strength", 2 ],
+      [ "spell_scroll_foxs_cunning", 2 ],
+      [ "spell_scroll_ethereal_grasp", 50 ],
+      [ "spell_scroll_ice_spike", 30 ],
+      [ "spell_scroll_frost_spray", 40 ],
+      [ "spell_scroll_glide_ice", 45 ],
+      [ "spell_scroll_ice_shield", 35 ],
+      [ "spell_scroll_frost_armor", 35 ],
+      [ "spell_scroll_cone_cold", 15 ],
+      [ "spell_scroll_hoary_blast", 15 ]
+	
+    ]
+  },
+  
+  {
+    "id": "leech_scrolls",
+    "type": "item_group",
+    "items": [
+      [ "spell_scroll_light_healing", 30 ],
+      [ "spell_scroll_bio_acidicspray", 40 ],
+      [ "spell_scroll_necrotic_gaze", 40 ],
+      [ "spell_scroll_biomancer_paralytic_dart", 40 ],
+      [ "spell_scroll_biomancer_visceral_projection", 40 ],
+      [ "spell_scroll_summon_zombie", 25 ],
+      [ "spell_scroll_summon_skeleton", 25 ],
+      [ "spell_scroll_pain_split", 20 ],
+      [ "spell_scroll_bio_grotesque", 30 ],
+      [ "spell_scroll_bio_fleshpouch", 30 ],
+      [ "spell_scroll_recover_mana", 5 ],
+      [ "spell_scroll_recover_pain", 5 ],
+      [ "spell_scroll_recover_fatigue", 8 ],
+      [ "spell_scroll_recover_stamina", 8 ],
+      [ "spell_scroll_vicious_tentacle", 20 ],
+      [ "spell_scroll_summon_decayed_pouncer", 15 ],
+      [ "spell_scroll_bio_bonespear", 20 ],
+      [ "spell_scroll_biomancer_coagulant_weave", 30 ]
+	
+    ]
+  },
+  
+  {
+    "id": "souldrop",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "decaying_soul", "prob": 98 },
+      { "item": "corrupted_soul", "prob": 2 }
+    ]
+  },
+  
+  {
+    "id": "avatargear",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "avatar_fist", "prob": 50 },
+      { "item": "storm_raiment", "prob": 50 }
+    ]
+  },
+  
+  {
+    "id": "inakagear",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "wolf_raiment", "prob": 50 },
+      { "item": "wolf_wakizashi", "prob": 50 },
+      { "item": "wolf_sash", "prob": 50 },
+      { "item": "lone_wolf_blade", "prob": 50 }
+    ]
+  },
+  
+  {
+    "id": "crystalkunai",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "crystal_kunai", "prob": 50 },
+      { "item": "virid_kunai", "prob": 50 },
+      { "item": "ceruleum_kunai", "prob": 50 },
+      { "item": "argent_kunai", "prob": 50 },
+      { "item": "crimson_kunai", "prob": 50 }
+    ]
+  },
+  {
+    "id": "crystalswords",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "crimson_sword", "prob": 50 },
+      { "item": "virid_sword", "prob": 50 },
+      { "item": "ceruleum_sword", "prob": 50 },
+      { "item": "argent_sword", "prob": 50 },
+      { "item": "crimson_breaker", "prob": 50 },
+      { "item": "virid_breaker", "prob": 50 },
+      { "item": "ceruleum_breaker", "prob": 50 },
+      { "item": "argent_breaker", "prob": 50 },
+      { "item": "blood_blade", "prob": 50 }
+    ]
+  },
+  {
+    "id": "lolitems",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "iceborn_gauntlet", "prob": 11 },
+      { "item": "seraphs_embrace", "prob": 11 },
+      { "item": "ghostblade", "prob": 11 },
+      { "item": "trinity_force", "prob": 11 },
+      { "item": "muramana", "prob": 11 },
+      { "item": "randuins_omen", "prob": 11 }
+    ]
+  },
+  
+  {
+    "id": "runecoredrop",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "broken_core", "prob": 99 },
+      { "item": "rune_core", "prob": 1 }
+    ]
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+]

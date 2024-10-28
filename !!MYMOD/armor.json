@@ -1,0 +1,1975 @@
+[
+  {
+    "id": "shield_beskar",
+    "type": "ARMOR",
+    "name": { "str": "beskar shield" },
+    "description": "A crude wooden shield, lacking any metal or leather reinforcement.  Tolerable weight but not very tough.",
+    "weight": "3 kg",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "5 USD",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "color": "brown",
+    "covers": [ "arm_either", "hand_either" ],
+    "coverage": 90,
+    "encumbrance": 15,
+    "warmth": 5,
+    "material_thickness": 3,
+    "techniques": [ "WBLOCK_2" ],
+    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+  },
+  
+  
+  {
+    "id": "flame_glove",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Flame God's Grasp" },
+    "description": "The hand of the almighty Flame God himself, gives it's wielder the ability to conjure flame-nadoes .",
+    "weight": "3 kg",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "5 USD",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "color": "brown",
+    "covers": [ "hand_either" ],
+    "coverage": 90,
+    "encumbrance": 10,
+    "warmth": 20,
+    "material_thickness": 3,
+    "techniques": [ "WBLOCK_2" ],
+	 "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 1000 },
+            { "value": "MANA_CAP", "add": 1000 },
+            { "value": "SPEED", "add": 5 },
+            { "value": "MOVE_COST", "add": -5 },
+            { "value": "ARMOR_HEAT", "add": -25 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "INTELLIGENCE", "add": 1 }
+          ]
+        }
+      ]
+    },
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": { "type": "cast_spell", "spell_id": "summon_flamenado1", "no_fail": true, "level": 1, "need_wielding": false },
+    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+  },
+  
+  
+  
+  
+  {
+    "type": "effect_type",
+    "id": "youmuu",
+    "name": [ "Youmuu's Haste" ],
+    "desc": [ "you move with ninja-like swiftness" ],
+    "apply_message": "Petals begin to drop from the ghostblade as you feel more nimble and quick",
+    "remove_message": "You return to your normal speed.",
+    "rating": "good",
+    "base_mods": { "dex_mod": [ 4 ], "speed_mod": [ 350 ] }
+  },
+  {
+    "id": "youmuu_haste",
+    "type": "SPELL",
+    "name": "Youmuu's Haste",
+    "description": "You throttle your gunblade engine.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "youmuu",
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "base_casting_time": 1,
+    "base_energy_cost": 1,
+    "max_level": 1,
+    "min_duration": 3000,
+    "max_duration": 3000,
+    "duration_increment": 600
+  },
+  
+  {
+    "type": "effect_type",
+    "id": "inaka_haste",
+    "name": [ "Inaka's Fervor" ],
+    "desc": [ "you move with ninja-like swiftness" ],
+    "apply_message": "Inaka's Fervor fills you with agility!",
+    "remove_message": "You return to your normal speed.",
+    "rating": "good",
+    "base_mods": { "dex_mod": [ 4 ], "str_mod": [ 4 ], "speed_mod": [ 400 ] }
+  },
+  {
+    "id": "sash_cast",
+    "type": "SPELL",
+    "name": "Sash Cast",
+    "description": "You throttle your gunblade engine.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "inaka_haste",
+    "extra_effects": [ { "id": "sash_freeze" }	],
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "base_casting_time": 1,
+    "base_energy_cost": 1,
+    "max_level": 1,
+    "min_duration": 4000,
+    "max_duration": 4000,
+    "duration_increment": 600
+  },
+  
+  {
+    "id": "sash_freeze",
+    "type": "SPELL",
+    "name": "Sash-Stop",
+    "description": "reality around you warps around you and all monsters are frozern in place for 10 seconds.",
+    "valid_targets": [ "self" ],
+    "flags": [ "NO_LEGS" ],
+    "extra_effects": [ { "id": "smoke_inaka_sash" }	],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "min_damage": -1000,
+    "max_damage": -1000,
+    "message": "You contemplate the meaning of your past.",
+    "min_range": 10,
+    "max_range": 10
+  },
+  
+  {
+    "type": "effect_type",
+    "id": "tribuff",
+    "name": [ "Tons of Damage!" ],
+    "desc": [ "YOU HAVE NO MANA PHREAK" ],
+    "apply_message": "You feel a burst of movement speed from striking a foe!",
+    "remove_message": "You return to your normal speed.",
+    "rating": "good",
+    "base_mods": { "stamina_min": [ 150 ], "speed_mod": [ 100 ] }
+  },
+  {
+    "id": "triforce_buff",
+    "type": "SPELL",
+    "name": "Trinity Force Buff",
+    "description": "You throttle your gunblade engine.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "tribuff",
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "base_casting_time": 1,
+    "base_energy_cost": 1,
+    "max_level": 1,
+    "min_duration": 500,
+    "max_duration": 500,
+    "duration_increment": 600
+  },
+  
+  {
+    "type": "TOOL",
+    "id": "flamegod_finger",
+    "name": { "str": "Flame God's Finger" },
+    "copy-from": "spell_wand",
+    "description": "A small fraction of the Flame God's destructive power.",
+    "use_action": { "type": "cast_spell", "spell_id": "flamegod_fireball", "no_fail": true, "level": 1, "need_wielding": true }
+  },
+ {
+    "id": "ibg_dmg",
+    "type": "SPELL",
+    "name": "IBG Sheen Proc - dmg",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 25,
+    "max_damage": 25,
+    "base_casting_time": 0,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_range": 2,
+    "max_range": 2,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "cold",
+    "sound_description": "A field of ice slows your enemy!"
+  },
+ {
+    "id": "mura_dmg",
+    "type": "SPELL",
+    "name": "Muramana Prov",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 25,
+    "max_damage": 25,
+    "base_casting_time": 0,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_range": 2,
+    "max_range": 2,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "none",
+    "sound_description": "mana-fueled strikes pierce your target!"
+  },
+ {
+    "id": "lone_wolf_onhit",
+    "type": "SPELL",
+    "name": "Lone Wolf On-hit",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 50,
+    "max_damage": 50,
+    "base_casting_time": 0,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "cold"
+  },
+ {
+    "id": "ibg_slow",
+    "type": "SPELL",
+    "name": "IBG Sheen Proc",
+    "description": "",
+    "effect": "mod_moves",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": -150,
+    "max_damage": -150,
+    "extra_effects": [ { "id": "ibg_dmg" }	],
+    "base_casting_time": 0,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_range": 2,
+    "max_range": 2,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "cold",
+    "sound_description": "A field of ice slows your enemy!"
+  },
+
+ {
+    "id": "randuin_slow",
+    "type": "SPELL",
+    "name": "Randuin Slow",
+    "description": "",
+    "effect": "mod_moves",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": -350,
+    "max_damage": -350,
+    "base_casting_time": 0,
+    "min_aoe": 3,
+    "max_aoe": 3,
+    "min_range": 0,
+    "max_range": 0,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "cold"
+  },
+
+  {
+    "id": "iceborn_gauntlet",
+    "type": "ARMOR",
+    "name": { "str": "iceborn gauntlet" },
+    "description": "A gauntlet that has the ability to slow the target once every 4 hits. Wearing this provides some armor, speed, stamina, strength and dexterity.",
+    "weight": "3 kg",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "5 USD",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "color": "brown",
+    "covers": [ "hand_either" ],
+    "coverage": 90,
+    "encumbrance": 9,
+    "warmth": 5,
+    "material_thickness": 3,
+    "techniques": [ "WBLOCK_2" ],
+	 "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "ibg_slow", "once_in": 4 } ],
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -5 },
+            { "value": "ARMOR_ACID", "add": -1 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -1 },
+            { "value": "SPEED", "add": 5 },
+            { "value": "MOVE_COST", "add": -5 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "INTELLIGENCE", "add": 1 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+  },
+  
+  
+  
+  {
+    "id": "randuins_omen",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "randuin's omen" },
+    "description": "A shield with the ability to slow targets in the area around you.",
+    "weight": "3 kg",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "5 USD",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "color": "brown",
+    "covers": [ "arm_either", "hand_either" ],
+    "coverage": 90,
+    "encumbrance": 12,
+    "warmth": 5,
+    "material_thickness": 4,
+    "techniques": [ "WBLOCK_3" ],
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "randuin_slow",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+	 "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "ARMOR_BASH", "add": -3 },
+            { "value": "ARMOR_CUT", "add": -3 },
+            { "value": "ARMOR_BULLET", "add": -15 },
+            { "value": "ARMOR_ACID", "add": -3 },
+            { "value": "ARMOR_COLD", "add": -3 },
+            { "value": "ARMOR_ELEC", "add": -3 },
+            { "value": "SPEED", "add": 10 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 2 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+  },
+  
+  
+  {
+    "id": "shark_cuirass",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "shark fin brigandine" },
+    "description": "A runic cuirass adorned with magical shark-fins giving it's user the ability to dash short distances.",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 13,
+    "warmth": 10,
+    "material_thickness": 4,
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "rune_dash",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  
+  
+  {
+    "id": "king_cape",
+    "repairs_like": "sheet",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "King's Cape" },
+    "description": "A burlap cloak fit for a giant, allows you to assume the power of king kyriakos, as his avatar",
+    "weight": "900 g",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "150 cent",
+    "to_hit": -1,
+    "material": [ "cotton" ],
+    "symbol": "]",
+    "looks_like": "cloak",
+    "color": "pink",
+    "covers": [ "torso" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "ARMOR_BASH", "add": -5 },
+            { "value": "ARMOR_CUT", "add": -5 },
+            { "value": "ARMOR_BULLET", "add": -20 },
+            { "value": "ARMOR_ACID", "add": -5 },
+            { "value": "ARMOR_COLD", "add": -9 },
+            { "value": "ARMOR_ELEC", "add": -5 },
+            { "value": "STRENGTH", "add": 15 }
+          ]
+        }
+      ]
+    },
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "greek_slam",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "coverage": 50,
+    "encumbrance": 4,
+    "warmth": 10,
+    "material_thickness": 1,
+    "flags": [ "OVERSIZE", "BELTED" ]
+  },
+  
+  {
+    "id": "rune_cape",
+    "repairs_like": "sheet",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Cape of the Mountebank" },
+    "description": "An ornate cape embroidered with magically aneled gold and held together by a singular broach made from bloodcrystal",
+    "weight": "900 g",
+    "volume": "3 L",
+    "price": "50 USD",
+    "price_postapoc": "150 cent",
+    "to_hit": -1,
+    "material": [ "cotton" ],
+    "symbol": "]",
+    "looks_like": "cloak",
+    "color": "pink",
+    "covers": [ "torso" ],
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "cape_port",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "coverage": 50,
+    "encumbrance": 4,
+    "warmth": 10,
+    "material_thickness": 1,
+    "flags": [ "OVERSIZE", "BELTED" ]
+  },
+  {
+    "id": "philo_stone",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "philosopher's stone"},
+    "description": "An alchemical artifact seldom even believe to exist in true, though it's composition is well known.",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "welding_mask_crude",
+    "color": "light_gray",
+    "covers": [ "head" ],
+    "coverage": 100,
+    "encumbrance": 1,
+    "warmth": 10,
+    "material_thickness": 5,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": ["MANA_SILENT_SPELL","MANA_SUBTLE_SPELL","MANA_CRYST_MANA","MANA_REGEN3","MANA_MULT3"],
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "MANA_CAP", "add": 10000 },
+            { "value": "SPEED", "add": 20 },
+            { "value": "DEXTERITY", "add": 3 },
+            { "value": "STRENGTH", "add": 3 },
+            { "value": "INTELLIGENCE", "add": 3 },
+            { "value": "PERCEPTION", "add": 3 }
+          ]
+        },
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "mutations": ["MANA_SILENT_SPELL","MANA_SUBTLE_SPELL","MANA_CRYST_MANA","MANA_REGEN3","MANA_MULT3"],
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "MANA_CAP", "add": 10000 },
+            { "value": "MANA_REGEN", "multiply": 5 },
+            { "value": "ARMOR_BASH", "add": -5 },
+            { "value": "ARMOR_CUT", "add": -5 },
+            { "value": "ARMOR_BULLET", "add": -20 },
+            { "value": "ARMOR_ACID", "add": -5 },
+            { "value": "ARMOR_COLD", "add": -9 },
+            { "value": "ARMOR_ELEC", "add": -5 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "SPEED", "add": 20 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "STRENGTH", "add": 5 },
+            { "value": "INTELLIGENCE", "add": 5 },
+            { "value": "PERCEPTION", "add": 5 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "PERSONAL", "UNARMED_WEAPON", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID",  "AURA", "NONCONDUCTIVE" ]
+  },
+  
+  
+  {
+    "id": "vamp_mask",
+    "type": "ARMOR",
+    "name": { "str": "stone mask"},
+    "description": "This ancient rune artifact was originally found in the ruins of an aztec death-cult, it is said to turn whoever wears it into an extremely powerful immortal.",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "welding_mask_crude",
+    "color": "light_gray",
+    "covers": [ "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 25,
+    "warmth": 10,
+    "material_thickness": 5,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": ["SUNBURN","CANNIBAL","CARNIVORE","FANGS","NAILS"],
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "MANA_CAP", "add": 1000 },
+            { "value": "MANA_REGEN", "multiply": 1.2 },
+            { "value": "ARMOR_BASH", "add": -5 },
+            { "value": "ARMOR_CUT", "add": -5 },
+            { "value": "ARMOR_BULLET", "add": -20 },
+            { "value": "ARMOR_ACID", "add": -5 },
+            { "value": "ARMOR_COLD", "add": -9 },
+            { "value": "ARMOR_ELEC", "add": -5 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "SPEED", "add": 20 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 3 },
+            { "value": "STRENGTH", "add": 3 },
+            { "value": "INTELLIGENCE", "add": 3 },
+            { "value": "PERCEPTION", "add": 3 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "NO_TAKEOFF",  "AURA", "NONCONDUCTIVE" ]
+  },
+  {
+    "id": "spirit_guardian",
+    "type": "ARMOR",
+    "name": { "str": "Spirit Guardian" },
+    "description": "A spiritual entity that is invisible to the naked eye, though you and other spirit guardian users can see it.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 15 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "PERCEPTION", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 2 },
+            { "value": "MANA_REGEN", "multiply": 1.1 },
+            { "value": "STAMINA_REGEN", "multiply": 1.1 },
+            { "value": "ARMOR_BASH", "add": -5 },
+            { "value": "ARMOR_CUT", "add": -5 },
+            { "value": "ARMOR_BULLET", "add": -15 },
+            { "value": "BONUS_DODGE", "add": 2 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "inner_flame",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Flame of Volition" },
+    "description": "A spiritual flame created by the youthful burning energy of its weare's soul.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "CLIMATE_CONTROL", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 100 },
+            { "value": "STRENGTH", "add": 4 },
+            { "value": "DEXTERITY", "add": 8 },
+            { "value": "PERCEPTION", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 6 },
+            { "value": "ARMOR_HEAT", "add": -50 },
+            { "value": "STAMINA_REGEN", "multiply": 1.5 },
+            { "value": "STAMINA_CAP", "add": 8000 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "inner_sanctuary",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Inner Sanctuary" },
+    "description": "A metaphysical realm that exists within your soul, could be used to retreat from reality for a brief moment.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "ammo": "soulash",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "sanctuary_shield",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 15 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "PERCEPTION", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 2 },
+            { "value": "MANA_CAP", "add": 500 },
+            { "value": "MANA_REGEN", "multiply": 1.1 },
+            { "value": "STAMINA_REGEN", "multiply": 1.1 },
+            { "value": "STAMINA_CAP", "add": 1000 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dark_spirit",
+    "type": "ARMOR",
+    "name": { "str": "Grim Aura" },
+    "description": "A morbid essence gathered from evil demons, used by dark wizards to enhance their presence.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": [ "lichness1" ],
+          "values": [
+            { "value": "MANA_CAP", "add": 666 },
+            { "value": "MANA_CAP", "multiply": 1.2 },
+            { "value": "SPEED", "add": 15 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "PERCEPTION", "add": 1 },
+            { "value": "INTELLIGENCE", "add": 4 },
+            { "value": "STAMINA_CAP", "add": 666 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "lichness1",
+    "name": { "str": "Novice Lichery" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": 3,
+    "bodytemp_modifiers": [ -2500, -2500 ],
+    "description": "As you delve into the arts of lichcraft, your body grows painful and cold. Is this worth it for the power?",
+    "types": [ "SKIN" ],
+    "armor": [ { "parts": "ALL", "cut": 1, "bash": 1, "bullet": 1 } ]
+  },
+  
+  {
+    "type": "mutation",
+    "id": "true_lichery",
+    "name": { "str": "True Lichery" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": 3,
+	"cancels": ["lichness1", "lichness2"],
+    "description": "The crown of the lich king confers his accursed blessing of supreme lichery upon it's wearer.",
+    "types": [ "SKIN" ],
+    "armor": [ { "parts": "ALL", "cut": 1, "bash": 1, "bullet": 1 } ]
+  },
+  
+  
+  {
+    "id": "dark_spirit2",
+    "type": "ARMOR",
+    "name": { "str": "Ghastly Aura" },
+    "description": "A morbid essence gathered from evil demons, used by dark wizards to enhance their presence.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": [ "lichness2" ],
+          "values": [
+            { "value": "MANA_CAP", "add": 6666 },
+            { "value": "MANA_CAP", "multiply": 1.5 },
+            { "value": "SPEED", "add": 30 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "PERCEPTION", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 8 },
+            { "value": "STAMINA_CAP", "add": 666 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "lichness2",
+    "name": { "str": "Advanced Lichery" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": 3,
+    "bodytemp_modifiers": [ -3500, -3500 ],
+    "description": "As you delve into the arts of lichcraft, your body grows painful and cold. Is this worth it for the power?",
+    "types": [ "SKIN" ],
+    "armor": [ { "parts": "ALL", "cut": 1, "bash": 1, "bullet": 1 } ]
+  },
+  {
+    "id": "helmet_beskar",
+    "type": "ARMOR",
+    "name": { "str": "beskar helm"},
+    "description": "A sacred religious adornement to the original creators of beskar arms, according to their beliefs if you put don this helmet you are never to show your face to another, until you meet death in battle...",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "helmet_barbute",
+    "color": "light_gray",
+    "covers": [ "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 25,
+    "warmth": 10,
+    "material_thickness": 5,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3333 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 4 },
+            { "value": "SPEED", "add": 20 },
+            { "value": "DEXTERITY", "add": 4 },
+            { "value": "STRENGTH", "add": 4 },
+            { "value": "INTELLIGENCE", "add": 2 },
+            { "value": "PERCEPTION", "add": 4 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "STURDY",  "NO_TAKEOFF", "HELMET_COMPAT" ]
+  },
+  
+  {
+    "id": "dragon_crown",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Dragon King's Crown"},
+    "description": "A crown worn by Bahamut, The King of Dragons, can be used to cast megaflare.",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "crown_golden",
+    "color": "light_gray",
+    "covers": [ "head"],
+    "coverage": 100,
+    "encumbrance": 4,
+    "warmth": 10,
+    "material_thickness": 1,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "megaflare",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "MANA_CAP", "add": 2000 },
+            { "value": "MANA_REGEN", "multiply": 1.1 },
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "STRENGTH", "add": 4 },
+            { "value": "INTELLIGENCE", "add": 4 },
+            { "value": "DEXTERITY", "add": 4 },
+            { "value": "PERCEPTION", "add": 4 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "STURDY", "AURA" ]
+  },
+  {
+    "id": "lich_crown",
+    "type": "ARMOR",
+    "name": { "str": "Lich King's Crown"},
+    "description": "A crown worn by the lich king imbued with the power of true immortality.",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "crown_golden",
+    "color": "light_gray",
+    "covers": [ "head"],
+    "coverage": 100,
+    "encumbrance": 4,
+    "warmth": 10,
+    "material_thickness": 1,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": ["true_lichery"],
+          "values": [
+            { "value": "STAMINA_CAP", "add": 2000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.25 },
+            { "value": "MANA_CAP", "add": 6666 },
+            { "value": "MANA_REGEN", "multiply": 1.33 },
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 9 },
+            { "value": "PERCEPTION", "add": 4 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "STURDY", "AURA" ]
+  },
+  {
+    "id": "gauntlets_beskar",
+    "type": "ARMOR",
+    "name": { "str": "beskar gauntlets" },
+    "description": "Gauntlets made from the exoskeletons of insects.  Very light and durable.",
+    "weight": "760 g",
+    "volume": "1750 ml",
+    "price": "380 USD",
+    "price_postapoc": "1250 cent",
+    "to_hit": -2,
+    "bashing": 2,
+    "material": [ "beskar"],
+    "symbol": "[",
+    "looks_like": "gauntlets_larmor",
+    "color": "green",
+    "covers": [ "hands" ],
+    "coverage": 95,
+    "encumbrance": 15,
+    "warmth": 10,
+    "material_thickness": 3,
+    "environmental_protection": 4,
+    "flags": [ "STURDY" ]
+  },
+  
+  
+  {
+    "id": "monk_beads",
+    "type": "ARMOR",
+    "name": { "str": "prayer beads" },
+    "description": "A small relic from a forgotten saint.  As extraordinary as the world has become it may have some power yet.",
+    "weight": "60 g",
+    "volume": "15 ml",
+    "price": "10 USD",
+    "price_postapoc": "10 USD",
+    "material": [ "bone", "silver" ],
+    "symbol": "[",
+    "color": "white",
+    "use_action": "MEDITATE",
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3333 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 3 },
+            { "value": "STRENGTH", "add": 2 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "FANCY","STURDY" ]
+  },
+  {
+    "id": "monk_wraps",
+    "type": "ARMOR",
+    "name": { "str": "monk hand-wraps" },
+    "description": "Cloth made from runesilk worn by dragon monks to empower their draconic abilities.",
+    "weight": "10 g",
+    "volume": "1750 ml",
+    "price": "380 USD",
+    "price_postapoc": "1250 cent",
+    "to_hit": -2,
+    "bashing": 2,
+    "material": [ "rune"],
+    "symbol": "[",
+    "looks_like": "gauntlets_larmor",
+    "color": "green",
+    "covers": [ "hands" ],
+    "coverage": 95,
+    "encumbrance": 0,
+    "warmth": 1,
+    "material_thickness": 1,
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3333 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 3 },
+            { "value": "STRENGTH", "add": 2 }
+          ]
+        }
+      ]
+    },
+    "environmental_protection": 1,
+    "flags": [ "STURDY" ]
+  },
+  
+  
+  {
+    "id": "avatar_fist",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Avatar's Flaming Fist" },
+    "description": "a glove made from bright red magical silk, meant to evoke the presence of the great dragon grigori, worn by the avatar to enhance his dragon-form techniques.",
+    "weight": "10 g",
+    "volume": "1750 ml",
+    "price": "380 USD",
+    "price_postapoc": "1250 cent",
+    "to_hit": -2,
+    "bashing": 2,
+    "material": [ "rune"],
+    "symbol": "[",
+    "looks_like": "gauntlets_larmor",
+    "color": "green",
+    "covers": [ "hand_either" ],
+    "coverage": 95,
+    "encumbrance": 3,
+    "warmth": 1,
+    "material_thickness": 2,
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "avatar_flame",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3333 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "BONUS_DODGE", "add": 4 },
+            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 4 },
+            { "value": "STRENGTH", "add": 4 }
+          ]
+        }
+      ]
+    },
+    "environmental_protection": 1,
+    "flags": [ "STURDY" ]
+  },
+  
+  
+  {
+    "id": "beskar_greaves",
+    "type": "ARMOR",
+    "name": { "str": "beskar greaves"},
+    "description": "A pair of beskar boots complete with a set of plate leggings",
+    "weight": "300 g",
+    "volume": "1500 ml",
+    "price": "5 USD",
+    "price_postapoc": "50 cent",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "legguard_lightplate",
+    "color": "brown",
+    "covers": [ "legs" ],
+    "coverage": 95,
+    "encumbrance": 19,
+    "warmth": 5,
+    "material_thickness": 3,
+    "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ]
+  },
+  {
+    "id": "beskar_cuirass",
+    "type": "ARMOR",
+    "name": { "str_sp": "beskar chestplate" },
+    "description": "An ancient Roman laminar armor, made of overlapping metal strips connected to internal leather straps.",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 19,
+    "warmth": 10,
+    "material_thickness": 4,
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  
+  
+  {
+    "id": "gauntlets_rune",
+    "type": "ARMOR",
+    "name": { "str": "rune bracers" },
+    "description": "Gauntlets made from magically imbued metals.",
+    "weight": "760 g",
+    "volume": "1750 ml",
+    "price": "380 USD",
+    "price_postapoc": "1250 cent",
+    "to_hit": -2,
+    "bashing": 2,
+    "material": [ "rune"],
+    "symbol": "[",
+    "looks_like": "gauntlets_larmor",
+    "color": "green",
+    "covers": [ "hands" ],
+    "coverage": 95,
+    "encumbrance": 10,
+    "warmth": 10,
+    "material_thickness": 3,
+    "environmental_protection": 4,
+    "flags": [ "STURDY" ]
+  },
+  
+  
+  {
+    "id": "helmet_rune",
+    "type": "ARMOR",
+    "name": { "str": "rune helm" },
+    "description": "A full helmet made from rune.",
+    "weight": "2175 g",
+    "volume": "2750 ml",
+    "price": "400 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 10,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "helmet_larmor",
+    "color": "light_gray",
+    "covers": [ "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 8,
+    "warmth": 10,
+    "material_thickness": 3,
+    "environmental_protection": 1,
+    "techniques": [ "WBLOCK_1" ],
+    "flags": [ "VARSIZE", "STURDY", "HELMET_COMPAT" ]
+  },
+  
+  {
+    "id": "rune_greaves",
+    "type": "ARMOR",
+    "name": { "str": "rune sabatons" },
+    "description": "A pair of runic sabatons along with a matching plated rune tassets.",
+    "weight": "300 g",
+    "volume": "1500 ml",
+    "price": "5 USD",
+    "price_postapoc": "50 cent",
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "legguard_lightplate",
+    "color": "brown",
+    "covers": [ "legs" ],
+    "coverage": 95,
+    "encumbrance": 13,
+    "warmth": 5,
+    "material_thickness": 3,
+    "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ]
+  },
+  
+  {
+    "id": "rune_cuirass",
+    "type": "ARMOR",
+    "name": { "str_sp": "rune cuirass" },
+    "description": "An ancient Roman laminar armor, made of overlapping metal strips connected to internal leather straps.",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 13,
+    "warmth": 10,
+    "material_thickness": 4,
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  {
+    "id": "mana_tear",
+    "type": "ARMOR",
+    "name": { "str": "Tear of the Goddess" },
+    "description": "Few are fortunate enough to come across the tears of the very goddess who created our world... but those who are lucky enough to acquire a Tear of the Goddess may take pleasure in a significant boost of mana points and mana points regeneration.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 2000 },
+            { "value": "MANA_REGEN", "multiply": 1.2 }
+          ]
+        }
+      ]
+    }
+  },
+  
+  {
+    "type": "TOOL_ARMOR",
+    "copy-from": "mbelt_leather",
+    "id": "wolf_sash",
+    "description": "A blood-soaked trinket carried by Inaka for an unknown reason.",
+    "name": { "str": "Sash of Eternal Sorrow"},
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "sash_cast",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "relic_data": {
+      "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "values": [ { "value": "SPEED", "multiply": 0.15, "add": 25 } ] } ]
+    }
+  },
+  
+  {
+    "id": "storm_raiment",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "Raiment of a Thousand Storms" },
+    "description": "A yellow sash draped over the body meant to resemble the heads of ghidra, worn by the avatar to enhance his dragon-form techniques.",
+    "weight": "300 g",
+    "volume": "500 ml",
+    "price": "25 USD",
+    "price_postapoc": "50 cent",
+    "material": [ "rune" ],
+    "symbol": "[",
+    "color": "dark_gray",
+    "covers": [ "head", "mouth", "eyes", "torso", "arms", "hands", "legs", "feet" ],
+    "coverage": 100,
+    "warmth": 20,
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "avatar_elec",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "material_thickness": 1,
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3333 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "BONUS_DODGE", "add": 4 },
+            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 4 },
+            { "value": "STRENGTH", "add": 4 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "SKINTIGHT", "POWERARMOR_COMPATIBLE", "WATER_FRIENDLY" ]
+  },
+  
+  {
+    "id": "dragons_dogma",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Dragon's Dogma"},
+    "description": "A blade used by the legendary white wolf, can summon his companion to your aid.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "STAMINA_CAP", "add": 3000 },
+            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "STRENGTH", "add": 5 },
+            { "value": "INTELLIGENCE", "add": 5 },
+            { "value": "PERCEPTION", "add": 5 },
+            { "value": "DEXTERITY", "multiply": 1.1 },
+            { "value": "INTELLIGENCE", "multiply": 1.1 },
+            { "value": "PERCEPTION", "multiply": 1.1 },
+            { "value": "STRENGTH", "multiply": 1.1  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 80,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  
+  {
+    "id": "wolf_raiment",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "white wolf raiment" },
+    "description": "Ancient garb worn by warriors of the past, this particular set worn by legendary warrior Inaka has been imbued with the ability to dash short distances.",
+    "weight": "300 g",
+    "volume": "500 ml",
+    "price": "25 USD",
+    "price_postapoc": "50 cent",
+    "material": [ "rune" ],
+    "symbol": "[",
+    "color": "dark_gray",
+    "covers": [ "head", "mouth", "eyes", "torso", "arms", "hands", "legs", "feet" ],
+    "coverage": 100,
+    "warmth": 20,
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "wolf_dash",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "material_thickness": 1,
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STAMINA_CAP", "add": 3000 },
+            { "value": "SPEED", "add": 25 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "STRENGTH", "add": 5 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "SKINTIGHT", "POWERARMOR_COMPATIBLE", "WATER_FRIENDLY" ]
+  },
+  
+  
+  {
+    "id": "lone_wolf_blade",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Blade of the Lone Wolf"},
+    "description": "A blade used by the legendary white wolf, each swing of the blade does 50 cold damage.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "lone_wolf_onhit" } ],
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "SPEED", "multiply": 1.5 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "STRENGTH", "add": 5 },
+            { "value": "DEXTERITY", "multiply": 1.25 },
+            { "value": "STRENGTH", "multiply": 1.25  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 10,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "wolf_wakizashi",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "White Wolf Wakizashi"},
+    "description": "A blade used by the legendary white wolf, can summon his companion to your aid.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "call_wolf",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": true
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "SPEED", "multiply": 1.5 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 5 },
+            { "value": "STRENGTH", "add": 5 },
+            { "value": "DEXTERITY", "multiply": 1.25 },
+            { "value": "STRENGTH", "multiply": 1.25  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "ghostblade",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Youmuu's Ghostblade"},
+    "description": "A blade used by a renowned assassin, no one knows his face and seldom knew his name, though his bloodied legacy lives on through this accursed sword.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "youmuu_haste",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": true
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "SPEED", "multiply": 1.2 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "DEXTERITY", "multiply": 1.1 },
+            { "value": "STRENGTH", "multiply": 1.1  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  
+  
+  {
+    "id": "trinity_force",
+    "type": "GENERIC",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "trinity force"},
+    "description": "Tons of damage!",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "triforce_buff" } ],
+          "values": [
+            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "SPEED", "add": 25 },
+            { "value": "SPEED", "multiply": 1.2 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 2 },
+            { "value": "PERCEPTION", "add": 2 },
+            { "value": "DEXTERITY", "multiply": 1.1 },
+            { "value": "STRENGTH", "multiply": 1.1  },
+            { "value": "INTELLIGENCE", "multiply": 1.1  },
+            { "value": "PERCEPTION", "multiply": 1.1  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "muramana",
+    "type": "GENERIC",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "muramana"},
+    "description": "Tales tell of a swordsmith with the ability to mend mana and steel together as one, this masterwork is proof of such a tale.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "mura_dmg" } ],
+          "values": [
+            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "STRENGTH", "add": 5 }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 34,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "lich_staff",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "lich priest's staff"},
+    "description": "A cursed staff stolen from a lich priest, could be used to cast healing spells.",
+    "price": "400 USD",
+    "material": "wood",
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "light_healing",
+        "no_fail": true,
+        "level": 22,
+        "need_wielding": false
+      }
+    ],
+    "flags": [ "SHEATH_SPEAR", "ALWAYS_TWOHAND", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "INTELLIGENCE", "add": 10 },
+            { "value": "MANA_REGEN", "multiply": 2 }
+          ]
+        }
+      ]
+    },
+    "weight": "1400 g",
+    "volume": "3 L",
+    "bashing": 19,
+    "category": "weapons",
+    "to_hit": 3
+  },
+  {
+    "id": "seraphs_embrace",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "seraph's embrace"},
+    "description": "A mythical staff once held in the hands of Seraph, a mythological figure supposedly involved in the creation of magic.",
+    "price": "400 USD",
+    "material": "wood",
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "seraph_shield",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": false
+      }
+    ],
+    "flags": [ "SHEATH_SPEAR", "ALWAYS_TWOHAND", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "INTELLIGENCE", "add": 10 },
+            { "value": "MANA_REGEN", "multiply": 2 }
+          ]
+        }
+      ]
+    },
+    "weight": "1400 g",
+    "volume": "3 L",
+    "bashing": 19,
+    "category": "weapons",
+    "to_hit": 3
+  },
+  {
+    "id": "vibrant_halo",
+    "type": "ARMOR",
+    "name": { "str": "Vibrant Halo" },
+    "description": "A circular beam of rainbow-colored light that naturally sits a few inches above its wearer's head.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 1600 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 4 },
+            { "value": "SPEED", "add": 50 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "INTELLIGENCE", "add": 2 },
+            { "value": "PERCEPTION", "add": 2 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ioun_crimson",
+    "type": "ARMOR",
+    "name": { "str": "Iouned Crimsonite" },
+    "description": "A small floating stone perpetually in an orbit around the wearer's head.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 400 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 1 },
+            { "value": "SPEED", "add": 10 },
+            { "value": "STRENGTH", "add": 1 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ioun_ceruleum",
+    "type": "ARMOR",
+    "name": { "str": "Iouned Ceruleum" },
+    "description": "A small floating stone perpetually in an orbit around the wearer's head.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 400 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 1 },
+            { "value": "SPEED", "add": 10 },
+            { "value": "INTELLIGENCE", "add": 1 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ioun_argent",
+    "type": "ARMOR",
+    "name": { "str": "Iouned Argentium" },
+    "description": "A small floating stone perpetually in an orbit around the wearer's head.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 400 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 1 },
+            { "value": "SPEED", "add": 10 },
+            { "value": "DEXTERITY", "add": 1 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ioun_virid",
+    "type": "ARMOR",
+    "name": { "str": "Iouned Viridite" },
+    "description": "A small floating stone perpetually in an orbit around the wearer's head.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 2000,
+    "price_postapoc": 250,
+    "flags": [ "PERSONAL", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "AURA", "NO_TAKEOFF", "NONCONDUCTIVE" ],
+    "material": [ "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "MANA_CAP", "add": 400 },
+            { "value": "ARMOR_BASH", "add": -1 },
+            { "value": "ARMOR_CUT", "add": -1 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "BONUS_DODGE", "add": 1 },
+            { "value": "SPEED", "add": 10 },
+            { "value": "PERCEPTION", "add": 1 }
+          ]
+        }
+      ]
+    }
+  }
+]
