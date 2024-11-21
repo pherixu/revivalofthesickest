@@ -3,7 +3,7 @@
     "id": "shield_beskar",
     "type": "ARMOR",
     "name": { "str": "beskar shield" },
-    "description": "A crude wooden shield, lacking any metal or leather reinforcement.  Tolerable weight but not very tough.",
+    "description": "A lightweight shield made of otherworldy metal.",
     "weight": "3 kg",
     "volume": "3 L",
     "price": "50 USD",
@@ -19,7 +19,7 @@
     "warmth": 5,
     "material_thickness": 3,
     "techniques": [ "WBLOCK_2" ],
-    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+    "flags": [ "OVERSIZE", "BELTED", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
   },
   
   
@@ -65,7 +65,7 @@
     "max_charges": 1,
     "charges_per_use": 1,
     "use_action": { "type": "cast_spell", "spell_id": "summon_flamenado1", "no_fail": true, "level": 1, "need_wielding": false },
-    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+    "flags": [ "OVERSIZE", "BELTED", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
   },
   
   
@@ -151,6 +151,28 @@
     "message": "You contemplate the meaning of your past.",
     "min_range": 10,
     "max_range": 10
+  },
+  
+  {
+    "id": "light_stun",
+    "type": "SPELL",
+    "name": "Revealing Stun",
+    "description": "reality around you warps around you and a single monster is frozern in place for 10 seconds.",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_damage": -1000,
+    "max_damage": -1000,
+    "message": "You contemplate the meaning of your past.",
+    "min_range": 15,
+    "max_range": 15
   },
   
   {
@@ -339,9 +361,8 @@
         }
       ]
     },
-    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+    "flags": [ "OVERSIZE", "BELTED", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
   },
-  
   
   
   {
@@ -397,7 +418,212 @@
         }
       ]
     },
-    "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+    "flags": [ "OVERSIZE", "BELTED", "BLOCK_WHILE_WORN", "POWERARMOR_COMPATIBLE" ]
+  },
+  
+  {
+    "id": "fimbul_regen",
+    "type": "SPELL",
+    "name": { "str": "Fimbul Regen" },
+    "description": "You channel their life force itself into your spiritual energy.  You spend hp to regain mana.",
+    "valid_targets": [ "self" ],
+    "min_damage": 50,
+    "damage_increment": 15,
+    "max_damage": 50,
+    "max_level": 1,
+    "effect": "recover_energy",
+    "effect_str": "MANA",
+    "energy_source": "STAMINA",
+    "base_casting_time": 500,
+    "base_energy_cost": 5,
+    "energy_increment": 1,
+    "final_energy_cost": 60,
+    "flags": [ "SILENT", "NO_LEGS", "NO_EXPLOSION_VFX" ],
+    "difficulty": 3
+  },
+  
+  {
+    "id": "mura_regen",
+    "type": "SPELL",
+    "name": { "str": "Muramana Regen" },
+    "description": "You channel their life force itself into your spiritual energy.  You spend hp to regain mana.",
+    "valid_targets": [ "self" ],
+    "min_damage": 50,
+    "damage_increment": 15,
+    "max_damage": 50,
+    "max_level": 1,
+    "effect": "recover_energy",
+    "effect_str": "MANA",
+    "energy_source": "STAMINA",
+    "base_casting_time": 500,
+    "base_energy_cost": 5,
+    "energy_increment": 1,
+    "final_energy_cost": 60,
+    "flags": [ "SILENT", "NO_LEGS", "NO_EXPLOSION_VFX" ],
+    "difficulty": 3
+  },
+  
+  {
+    "id": "sage_surplice",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "Sage's Surplice" },
+    "description": "Robe made from sacred threads. Provides 1000 flat mana, 1.1x base mana, 1.25x mana regen, and +6 intelligence.",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "leather" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 5,
+    "warmth": 10,
+    "material_thickness": 4,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+		  "values": [
+					{ "value": "MANA_CAP", "add": 1000 }, 
+					{ "value": "MANA_CAP", "multiply": 0.1 },  
+					{ "value": "MANA_REGEN", "multiply": 0.25 }, 
+					{ "value": "INTELLIGENCE", "add": 3 }
+]					
+		  
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  
+  
+  
+  {
+    "id": "moon_surcoat",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "Silver Moon Surcoat" },
+    "description": "Robe made from sacred threads. Provides 2500 flat mana, 1.25x base mana, 1.5x mana regen, and +6 intelligence",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "leather" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 5,
+    "warmth": 10,
+    "material_thickness": 4,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+		  "values": [
+					{ "value": "MANA_CAP", "add": 2500 }, 
+					{ "value": "MANA_CAP", "multiply": 0.25 },  
+					{ "value": "MANA_REGEN", "multiply": 0.5 }, 
+					{ "value": "INTELLIGENCE", "add": 6 }
+]					
+		  
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  
+  
+  {
+    "id": "sun_gambeson",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "Golden Sun Gambeson" },
+    "description": "Robe made from sacred threads. Provides 2500 flat mana, 1.25x base mana, 1.5x mana regen, and +6 intelligence",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "leather" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 5,
+    "warmth": 10,
+    "material_thickness": 4,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+		  "values": [
+					{ "value": "MANA_CAP", "add": 2500 }, 
+					{ "value": "MANA_CAP", "multiply": 0.25 },  
+					{ "value": "MANA_REGEN", "multiply": 0.5 }, 
+					{ "value": "INTELLIGENCE", "add": 6 }
+]					
+		  
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+  },
+  
+  {
+    "id": "fimbulwinter",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "fimbulwinter" },
+    "description": "A runic cuirass adorned with magical shark-fins giving it's user the ability to dash short distances.",
+    "weight": "5286 g",
+    "volume": "6 L",
+    "price": "500 USD",
+    "price_postapoc": "35 USD",
+    "to_hit": -5,
+    "bashing": 6,
+    "material": [ "leather" ],
+    "symbol": "[",
+    "looks_like": "armor_lamellar",
+    "color": "light_gray",
+    "covers": [ "torso", "arms" ],
+    "coverage": 95,
+    "encumbrance": 5,
+    "warmth": 10,
+    "material_thickness": 1,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_me_effect": [ { "id": "fimbul_regen" } ],
+		  "values": [
+					{ "value": "MANA_CAP", "add": 5000 }, 
+					{ "value": "MANA_REGEN", "multiply": 0.5 }, 
+					{ "value": "ARMOR_ACID", "multiply": 0.80 }, 
+					{ "value": "ARMOR_BASH", "multiply": 0.80 }, 
+					{ "value": "ARMOR_BIO", "multiply": 0.80 }, 
+					{ "value": "ARMOR_BULLET", "multiply": 0.80 }, 
+					{ "value": "ARMOR_COLD", "multiply": 0.80 }, 
+					{ "value": "ARMOR_CUT", "multiply": 0.80 }, 
+					{ "value": "ARMOR_ELEC", "multiply": 0.80 }, 
+					{ "value": "ARMOR_HEAT", "multiply": 0.80 }, 
+					{ "value": "ARMOR_STAB", "multiply": 0.80 }, 
+					{ "value": "BONUS_DODGE", "add": 4 }]	    
+		  
+        }
+      ]
+    },
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
   },
   
   
@@ -460,7 +686,7 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "STAMINA_REGEN", "multiply": 0.3 },
             { "value": "ARMOR_BASH", "add": -5 },
             { "value": "ARMOR_CUT", "add": -5 },
             { "value": "ARMOR_BULLET", "add": -20 },
@@ -553,7 +779,7 @@
           "mutations": ["MANA_SILENT_SPELL","MANA_SUBTLE_SPELL","MANA_CRYST_MANA","MANA_REGEN3","MANA_MULT3"],
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "STAMINA_REGEN", "multiply": 0.3 },
             { "value": "MANA_CAP", "add": 10000 },
             { "value": "SPEED", "add": 20 },
             { "value": "DEXTERITY", "add": 3 },
@@ -568,9 +794,9 @@
           "mutations": ["MANA_SILENT_SPELL","MANA_SUBTLE_SPELL","MANA_CRYST_MANA","MANA_REGEN3","MANA_MULT3"],
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "STAMINA_REGEN", "multiply": 0.3 },
             { "value": "MANA_CAP", "add": 10000 },
-            { "value": "MANA_REGEN", "multiply": 5 },
+            { "value": "MANA_REGEN", "multiply": 4 },
             { "value": "ARMOR_BASH", "add": -5 },
             { "value": "ARMOR_CUT", "add": -5 },
             { "value": "ARMOR_BULLET", "add": -20 },
@@ -618,12 +844,12 @@
         {
           "has": "WORN",
           "condition": "ALWAYS",
-          "mutations": ["SUNBURN","CANNIBAL","CARNIVORE","FANGS","NAILS"],
+          "mutations": ["SUNBURN","CANNIBAL","CARNIVORE","PRED2","FANGS","NAILS"],
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.3 },
+            { "value": "STAMINA_REGEN", "multiply": 0.3 },
             { "value": "MANA_CAP", "add": 1000 },
-            { "value": "MANA_REGEN", "multiply": 1.2 },
+            { "value": "MANA_REGEN", "multiply": 0.2 },
             { "value": "ARMOR_BASH", "add": -5 },
             { "value": "ARMOR_CUT", "add": -5 },
             { "value": "ARMOR_BULLET", "add": -20 },
@@ -643,6 +869,77 @@
     },
     "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "TRADER_AVOID", "NO_TAKEOFF",  "AURA", "NONCONDUCTIVE" ]
   },
+  
+  
+  {
+    "id": "tri_scabbard",
+    "type": "ARMOR",
+    "name": { "str": "triple-action quick release combat scabbard" },
+    "description": "A large, adjustable sheath for holding swords and other large blades.  The hilt has a mechanical system that shoots out the sheathed blade with tremendous force, and this particular model is capable of holding 3 swords.",
+    "weight": "1360 g",
+    "volume": "1750 ml",
+    "price": "60 USD",
+    "price_postapoc": "5 USD",
+    "bashing": 4,
+    "material": [ "leather", "wood" ],
+    "symbol": "[",
+    "looks_like": "holster",
+    "color": "brown",
+    "covers": [ "leg_either" ],
+    "coverage": 0,
+    "rigid": false,
+    "encumbrance": 1,
+    "max_encumbrance": 2,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "holster_prompt": "Sheath sword",
+      "multi": 3,
+      "draw_cost": -100,
+      "holster_msg": "You sheath your %s",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "flags": [ "SHEATH_SWORD" ]
+    },
+    "flags": [ "WAIST", "COMPACT", "OVERSIZE", "WATER_FRIENDLY" ]
+  },
+  
+  
+  
+  {
+    "id": "quick_scabbard",
+    "type": "ARMOR",
+    "name": { "str": "quick release combat scabbard" },
+    "description": "A large, adjustable sheath for holding swords and other large blades.  It's hilt has a mechanical system that shoots out the sheathed blade with tremendous force.",
+    "weight": "1360 g",
+    "volume": "1750 ml",
+    "price": "60 USD",
+    "price_postapoc": "5 USD",
+    "bashing": 4,
+    "material": [ "leather", "wood" ],
+    "symbol": "[",
+    "looks_like": "holster",
+    "color": "brown",
+    "covers": [ "leg_either" ],
+    "coverage": 0,
+    "rigid": false,
+    "encumbrance": 1,
+    "max_encumbrance": 2,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "holster_prompt": "Sheath sword",
+      "multi": 4,
+      "draw_cost": -100,
+      "holster_msg": "You sheath your %s",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "flags": [ "SHEATH_SWORD" ]
+    },
+    "flags": [ "WAIST", "COMPACT", "OVERSIZE", "WATER_FRIENDLY" ]
+  },
+  
+  
   {
     "id": "spirit_guardian",
     "type": "ARMOR",
@@ -667,8 +964,8 @@
             { "value": "DEXTERITY", "add": 2 },
             { "value": "PERCEPTION", "add": 2 },
             { "value": "INTELLIGENCE", "add": 2 },
-            { "value": "MANA_REGEN", "multiply": 1.1 },
-            { "value": "STAMINA_REGEN", "multiply": 1.1 },
+            { "value": "MANA_REGEN", "multiply": 0.1 },
+            { "value": "STAMINA_REGEN", "multiply": 0.1 },
             { "value": "ARMOR_BASH", "add": -5 },
             { "value": "ARMOR_CUT", "add": -5 },
             { "value": "ARMOR_BULLET", "add": -15 },
@@ -689,6 +986,7 @@
     "price_postapoc": 250,
     "flags": [ "PERSONAL", "ONLY_ONE", "SEMITANGIBLE", "OVERSIZE", "CLIMATE_CONTROL", "NO_TAKEOFF",  "TRADER_AVOID", "AURA", "NONCONDUCTIVE" ],
     "material": [ "steel" ],
+    "covers": [ "head", "mouth", "eyes", "torso", "arms", "hands", "legs", "feet" ],
     "symbol": "/",
     "color": "brown",
     "relic_data": {
@@ -703,7 +1001,7 @@
             { "value": "PERCEPTION", "add": 2 },
             { "value": "INTELLIGENCE", "add": 6 },
             { "value": "ARMOR_HEAT", "add": -50 },
-            { "value": "STAMINA_REGEN", "multiply": 1.5 },
+            { "value": "STAMINA_REGEN", "multiply": 0.5 },
             { "value": "STAMINA_CAP", "add": 8000 }
           ]
         }
@@ -747,8 +1045,8 @@
             { "value": "PERCEPTION", "add": 2 },
             { "value": "INTELLIGENCE", "add": 2 },
             { "value": "MANA_CAP", "add": 500 },
-            { "value": "MANA_REGEN", "multiply": 1.1 },
-            { "value": "STAMINA_REGEN", "multiply": 1.1 },
+            { "value": "MANA_REGEN", "multiply": 0.1 },
+            { "value": "STAMINA_REGEN", "multiply": 0.1 },
             { "value": "STAMINA_CAP", "add": 1000 }
           ]
         }
@@ -776,7 +1074,7 @@
           "mutations": [ "lichness1" ],
           "values": [
             { "value": "MANA_CAP", "add": 666 },
-            { "value": "MANA_CAP", "multiply": 1.2 },
+            { "value": "MANA_CAP", "multiply": 0.2 },
             { "value": "SPEED", "add": 15 },
             { "value": "ARMOR_BULLET", "add": -10 },
             { "value": "STRENGTH", "add": 1 },
@@ -837,7 +1135,7 @@
           "mutations": [ "lichness2" ],
           "values": [
             { "value": "MANA_CAP", "add": 6666 },
-            { "value": "MANA_CAP", "multiply": 1.5 },
+            { "value": "MANA_CAP", "multiply": 0.5 },
             { "value": "SPEED", "add": 30 },
             { "value": "ARMOR_BULLET", "add": -10 },
             { "value": "STRENGTH", "add": 2 },
@@ -858,10 +1156,53 @@
     "visibility": 10,
     "ugliness": 3,
     "bodytemp_modifiers": [ -3500, -3500 ],
-    "description": "As you delve into the arts of lichcraft, your body grows painful and cold. Is this worth it for the power?",
+    "description": "As you delve into the arts of lichcraft, your body grows painful and cold. Is this power truly worth the price of humanity?",
     "types": [ "SKIN" ],
     "armor": [ { "parts": "ALL", "cut": 1, "bash": 1, "bullet": 1 } ]
   },
+  
+  {
+    "id": "ench_brandbleed",
+    "type": "enchantment",
+    "has": "WORN",
+    "ench_effects": [ { "effect": "brandbleed", "intensity": 1 } ]
+  },
+  {
+    "type": "effect_type",
+    "id": "brandbleed",
+    "name": [ "Bleeding Brand" ],
+    "desc": [ "your wound bleeds and stings... evil is near" ],
+    "apply_message": "You feel evil lurking around every corner...",
+    "remove_message": "You are no longer marked for sacrifice.",
+    "rating": "good",
+    "base_mods": { "dex_mod": [ 4 ],"str_mod": [ 4 ],"per_mod": [ 4 ], "pain_min": [ 25 ], "speed_mod": [ 25 ] }
+  },
+  
+  {
+    "id": "sacrifice_brand",
+    "type": "ARMOR",
+    "name": "Brand of Sacrifice",
+    "description": "This marking signifies you are an offering to the God Hand, destined to be devoured by the apostles. It draws death near any who bear this cursed heraldry, and causes constant pain to the marked one.",
+    "weight": "1g",
+    "volume": "1ml",
+    "material": "concentrated_mana",
+    "price": "3646 cent",
+    "symbol": "o",
+    "color": "light_gray",
+    "covers": [ "legs", "torso", "arms", "hands", "head", "feet", "mouth", "eyes" ],
+    "flags": [
+      "AURA",
+      "SEMITANGIBLE",
+      "OVERSIZE",
+      "ONLY_ONE",
+      "TRADER_AVOID",
+      "NO_TAKEOFF",
+      "NONCONDUCTIVE",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": { "passive_effects": [ { "id": "ench_brandbleed" } ] }
+  },
+  
   {
     "id": "helmet_beskar",
     "type": "ARMOR",
@@ -890,7 +1231,7 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 3333 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "ARMOR_BASH", "add": -10 },
             { "value": "ARMOR_CUT", "add": -10 },
             { "value": "ARMOR_BULLET", "add": -40 },
@@ -951,9 +1292,9 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "MANA_CAP", "add": 2000 },
-            { "value": "MANA_REGEN", "multiply": 1.1 },
+            { "value": "MANA_REGEN", "multiply": 0.1 },
             { "value": "ARMOR_BASH", "add": -10 },
             { "value": "ARMOR_CUT", "add": -10 },
             { "value": "ARMOR_BULLET", "add": -40 },
@@ -1000,9 +1341,9 @@
           "mutations": ["true_lichery"],
           "values": [
             { "value": "STAMINA_CAP", "add": 2000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.25 },
+            { "value": "STAMINA_REGEN", "multiply": 0.25 },
             { "value": "MANA_CAP", "add": 6666 },
-            { "value": "MANA_REGEN", "multiply": 1.33 },
+            { "value": "MANA_REGEN", "multiply": 0.33 },
             { "value": "ARMOR_BASH", "add": -10 },
             { "value": "ARMOR_CUT", "add": -10 },
             { "value": "ARMOR_BULLET", "add": -40 },
@@ -1064,9 +1405,9 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 3333 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "BONUS_DODGE", "add": 2 },
-            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "SPEED", "multiply": 0.1 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 3 },
@@ -1104,9 +1445,9 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 3333 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "BONUS_DODGE", "add": 2 },
-            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "SPEED", "multiply": 0.1 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 3 },
@@ -1159,9 +1500,9 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 3333 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "BONUS_DODGE", "add": 4 },
-            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "SPEED", "multiply": 0.1 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 4 },
@@ -1335,13 +1676,90 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "MANA_CAP", "add": 2000 },
-            { "value": "MANA_REGEN", "multiply": 1.2 }
+            { "value": "MANA_REGEN", "multiply": 0.2 }
           ]
         }
       ]
     }
   },
   
+  {
+    "id": "stasis_holster_leg",
+    "type": "ARMOR",
+    "name": { "str": "stasis holster (leg)" },
+    "description": "A magical stone with the ability to painlessly attach to your body at will. This stone can also hold any singular item within a small area around the stone in a perpetual stasis, allowing for both quick access and sturdy storage",
+    "weight": "1320 g",
+    "volume": "1 L",
+    "price": "200 USD",
+    "price_postapoc": "20 USD",
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "tool_belt",
+    "color": "light_gray",
+    "covers": [ "leg_either" ],
+    "coverage": 1,
+    "encumbrance": 1,
+    "max_encumbrance": 6,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "multi": 1,
+      "draw_cost": -100,
+      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP", "SHEATH_SPEAR" ],
+      "skills": [
+        "pistol",
+        "shotgun",
+        "cutting",
+        "archery",
+        "bashing",
+        "launcher",
+        "melee",
+        "rifle",
+        "smg",
+        "stabbing",
+        "throw",
+        "ALL",
+        "gun",
+        "unarmed"
+      ]
+    },
+    "flags": [ "AURA", "COMPACT" ]
+  },
+  
+  {
+    "type": "TOOL_ARMOR",
+    "copy-from": "mbelt_leather",
+    "id": "proto_gimbal",
+    "description": "An older, clunkier variation of the integrated gimbal mods seen today, this variant isn't good for much more than operating heavy weaponry with relative ease. The arm supports the weight of the weapon without assistance, allowing it to double as a holster for almost any weapon.",
+    "name": { "str": "Personal T.A.U. prototype"},
+    "use_action": {
+      "type": "holster",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "multi": 1,
+      "draw_cost": -100,
+      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP", "SHEATH_SPEAR" ],
+      "skills": [
+        "pistol",
+        "shotgun",
+        "cutting",
+        "archery",
+        "bashing",
+        "launcher",
+        "melee",
+        "rifle",
+        "smg",
+        "stabbing",
+        "throw",
+        "ALL",
+        "gun",
+        "unarmed"
+      ]
+    },
+    "flags": [ "AURA", "HEAVY_WEAPON_SUPPORT" ]
+  },
   {
     "type": "TOOL_ARMOR",
     "copy-from": "mbelt_leather",
@@ -1400,9 +1818,9 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "STAMINA_CAP", "add": 3333 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "BONUS_DODGE", "add": 4 },
-            { "value": "SPEED", "multiply": 1.1 },
+            { "value": "SPEED", "multiply": 0.1 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 4 },
@@ -1420,7 +1838,7 @@
     "symbol": "/",
     "color": "brown",
     "name": { "str": "Dragon's Dogma"},
-    "description": "A blade used by the legendary white wolf, can summon his companion to your aid.",
+    "description": "The Dragon's Dogma, a promise to temper the volition of the arisen so that he may become the seneschal, keeper to the cycle of destruction and creator of the dragon. Only those who have had their heart stolen by a dragon are doomed to this fate, though perhaps it is more than fate that governs this process",
     "price": "400 USD",
     "material": "rune",
     "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
@@ -1432,17 +1850,17 @@
           "values": [
             { "value": "SPEED", "add": 25 },
             { "value": "STAMINA_CAP", "add": 3000 },
-            { "value": "STAMINA_REGEN", "multiply": 1.2 },
+            { "value": "STAMINA_REGEN", "multiply": 0.2 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 5 },
             { "value": "STRENGTH", "add": 5 },
             { "value": "INTELLIGENCE", "add": 5 },
             { "value": "PERCEPTION", "add": 5 },
-            { "value": "DEXTERITY", "multiply": 1.1 },
-            { "value": "INTELLIGENCE", "multiply": 1.1 },
-            { "value": "PERCEPTION", "multiply": 1.1 },
-            { "value": "STRENGTH", "multiply": 1.1  }
+            { "value": "DEXTERITY", "multiply": 0.2 },
+            { "value": "INTELLIGENCE", "multiply": 0.2 },
+            { "value": "PERCEPTION", "multiply": 0.2 },
+            { "value": "STRENGTH", "multiply": 0.2  }
           ]
         }
       ]
@@ -1450,12 +1868,25 @@
     "weight": "100 g",
     "volume": "1 L",
     "bashing": 19,
-    "cutting": 80,
+    "cutting": 70,
     "category": "weapons",
     "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
     "to_hit": 6
   },
   
+  {
+    "id": "godsbane",
+    "copy-from": "dragons_dogma",
+    "type": "GENERIC",
+    "name": { "str": "Godsbane" },
+    "description": "A sword with the ability to slay even gods, obtained from defeating the seneschal, this item represents the ability to transcend fate itself, and overcome even the most dire odds through one's own volition.",
+    "weight": "45359 g",
+    "techniques": [ "WBLOCK_2", "PRECISE", "VORPAL" ],
+    "volume": "2500 ml",
+    "cutting": 90,
+    "to_hit": 9,
+    "price": "2 kUSD"
+  },
   
   
   {
@@ -1524,13 +1955,13 @@
           "hit_you_effect": [ { "id": "lone_wolf_onhit" } ],
           "values": [
             { "value": "SPEED", "add": 25 },
-            { "value": "SPEED", "multiply": 1.5 },
+            { "value": "SPEED", "multiply": 0.5 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 5 },
             { "value": "STRENGTH", "add": 5 },
-            { "value": "DEXTERITY", "multiply": 1.25 },
-            { "value": "STRENGTH", "multiply": 1.25  }
+            { "value": "DEXTERITY", "multiply": 0.25 },
+            { "value": "STRENGTH", "multiply": 0.25  }
           ]
         }
       ]
@@ -1574,13 +2005,13 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "SPEED", "add": 25 },
-            { "value": "SPEED", "multiply": 1.5 },
+            { "value": "SPEED", "multiply": 0.5 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 5 },
             { "value": "STRENGTH", "add": 5 },
-            { "value": "DEXTERITY", "multiply": 1.25 },
-            { "value": "STRENGTH", "multiply": 1.25  }
+            { "value": "DEXTERITY", "multiply": 0.25 },
+            { "value": "STRENGTH", "multiply": 0.25  }
           ]
         }
       ]
@@ -1624,13 +2055,13 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "SPEED", "add": 25 },
-            { "value": "SPEED", "multiply": 1.2 },
+            { "value": "SPEED", "multiply": 0.2 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 1 },
             { "value": "STRENGTH", "add": 1 },
-            { "value": "DEXTERITY", "multiply": 1.1 },
-            { "value": "STRENGTH", "multiply": 1.1  }
+            { "value": "DEXTERITY", "multiply": 0.1 },
+            { "value": "STRENGTH", "multiply": 0.1  }
           ]
         }
       ]
@@ -1644,6 +2075,105 @@
     "to_hit": 6
   },
   
+  
+  {
+    "id": "light_sword",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Sword of Revealing Light"},
+    "description": "This weapon was used by a great duelist, can be used to temporarily stun a creature (10 turns).",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+    "ammo": "crystallized_mana",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "light_stun",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": true
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "SPEED", "multiply": 0.2 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "DEXTERITY", "multiply": 0.1 },
+            { "value": "STRENGTH", "multiply": 0.1  }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "bloodthirst_heal",
+    "type": "SPELL",
+    "name": { "str": "Cure Light Wounds" },
+    "description": "Heals a little bit of damage on the target.",
+    "valid_targets": [ "self" ],
+    "min_damage": -12,
+    "max_damage": -41,
+    "damage_increment": -1,
+    "max_level": 22,
+    "min_range": 9,
+    "max_range": 17,
+    "range_increment": 0.75,
+    "effect": "target_attack",
+    "base_casting_time": 1,
+    "base_energy_cost": 800,
+    "flags": [ "SOMATIC", "VERBAL" ],
+    "difficulty": 2,
+    "energy_source": "MANA"
+  },
+  
+  {
+    "id": "bloodthirster",
+    "type": "GENERIC",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "bloodthirster"},
+    "description": "Tons of damage!",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "bloodthirst_heal" } ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 70,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
   
   
   
@@ -1666,17 +2196,17 @@
           "values": [
             { "value": "MANA_CAP", "add": 3000 },
             { "value": "SPEED", "add": 25 },
-            { "value": "SPEED", "multiply": 1.2 },
+            { "value": "SPEED", "multiply": 0.2 },
             { "value": "MOVE_COST", "add": -10 },
             { "value": "ATTACK_COST", "add": -10 },
             { "value": "DEXTERITY", "add": 2 },
             { "value": "STRENGTH", "add": 2 },
             { "value": "INTELLIGENCE", "add": 2 },
             { "value": "PERCEPTION", "add": 2 },
-            { "value": "DEXTERITY", "multiply": 1.1 },
-            { "value": "STRENGTH", "multiply": 1.1  },
-            { "value": "INTELLIGENCE", "multiply": 1.1  },
-            { "value": "PERCEPTION", "multiply": 1.1  }
+            { "value": "DEXTERITY", "multiply": 0.1 },
+            { "value": "STRENGTH", "multiply": 0.1  },
+            { "value": "INTELLIGENCE", "multiply": 0.1  },
+            { "value": "PERCEPTION", "multiply": 0.1  }
           ]
         }
       ]
@@ -1692,6 +2222,166 @@
   
   
   {
+    "id": "stasis_holster_leg",
+    "type": "ARMOR",
+    "name": { "str": "stasis holster (leg)" },
+    "description": "A magical stone with the ability to painlessly attach to your body at will. This stone can also hold any singular item within a small area around the stone in a perpetual stasis, allowing for both quick access and sturdy storage",
+    "weight": "1320 g",
+    "volume": "1 L",
+    "price": "200 USD",
+    "price_postapoc": "20 USD",
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "tool_belt",
+    "color": "light_gray",
+    "covers": [ "leg_either" ],
+    "coverage": 1,
+    "encumbrance": 1,
+    "max_encumbrance": 6,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "multi": 1,
+      "draw_cost": -100,
+      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP", "SHEATH_SPEAR" ],
+      "skills": [
+        "pistol",
+        "shotgun",
+        "cutting",
+        "archery",
+        "bashing",
+        "launcher",
+        "melee",
+        "rifle",
+        "smg",
+        "stabbing",
+        "throw",
+        "ALL",
+        "gun",
+        "unarmed"
+      ]
+    },
+    "flags": [ "AURA", "COMPACT" ]
+  },
+  
+  
+  {
+    "id": "stasis_holster",
+    "type": "ARMOR",
+    "name": { "str": "stasis holster" },
+    "description": "A magical stone with the ability to painlessly attach to your body at will. This stone can also hold any singular item within a small area around the stone in a perpetual stasis, allowing for both quick access and sturdy storage",
+    "weight": "1320 g",
+    "volume": "1 L",
+    "price": "200 USD",
+    "price_postapoc": "20 USD",
+    "material": [ "beskar" ],
+    "symbol": "[",
+    "looks_like": "tool_belt",
+    "color": "light_gray",
+    "covers": [ "torso" ],
+    "coverage": 1,
+    "encumbrance": 1,
+    "max_encumbrance": 6,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "max_volume": "100 L",
+      "min_volume": "100 ml",
+      "multi": 1,
+      "draw_cost": -100,
+      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP", "SHEATH_SPEAR" ],
+      "skills": [
+        "pistol",
+        "shotgun",
+        "cutting",
+        "archery",
+        "bashing",
+        "launcher",
+        "melee",
+        "rifle",
+        "smg",
+        "stabbing",
+        "throw",
+        "ALL",
+        "gun",
+        "unarmed"
+      ]
+    },
+    "flags": [ "AURA", "COMPACT" ]
+  },
+  
+  {
+    "id": "devilstraps",
+    "type": "ARMOR",
+    "name": { "str": "devil-hunting hellstraps" },
+    "description": "A custom-made leather harness with dual-horizontal shoulder holsters fitted under the armpits, allowing large guns to be stored with ease. There are also custom fittings on the back of the harness for a specialized cross-holster that can hold 2 more weapons. All of the weapons can be accessed with extreme quickness due to the elite materials and design",
+    "weight": "1320 g",
+    "volume": "1 L",
+    "price": "200 USD",
+    "price_postapoc": "20 USD",
+    "material": [ "rune" ],
+    "symbol": "[",
+    "looks_like": "tool_belt",
+    "color": "light_gray",
+    "covers": [ "torso" ],
+    "coverage": 15,
+    "encumbrance": 1,
+    "max_encumbrance": 6,
+    "material_thickness": 1,
+    "use_action": {
+      "type": "holster",
+      "max_weight": "500 kg",
+      "max_volume": "100 L",
+      "min_volume": "1 ml",
+      "multi": 4,
+      "draw_cost": 1,
+      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP", "SHEATH_SPEAR" ],
+      "skills": [
+        "pistol",
+        "shotgun",
+        "cutting",
+        "archery",
+        "bashing",
+        "launcher",
+        "melee",
+        "rifle",
+        "smg",
+        "stabbing",
+        "throw",
+        "ALL",
+        "gun",
+        "unarmed"
+      ]
+    },
+    "flags": [ "BELTED", "COMPACT" ]
+  },
+  
+  {
+    "id": "holdin_thangs",
+    "type": "ARMOR",
+    "name": { "str": "Holdin' Thangs" },
+    "description": "A holobag that's been fractal-holographically expanded to allow for even more storage.",
+    "weight": "3539 g",
+    "volume": "91 L",
+    "price": "200 USD",
+    "price_postapoc": "25 USD",
+    "material": [ "leather" ],
+    "symbol": "[",
+    "looks_like": "rucksack",
+    "color": "black",
+    "covers": [ "torso" ],
+    "coverage": 25,
+    "rigid": false,
+    "encumbrance": 0,
+    "storage": "980 L",
+    "warmth": 10,
+	"weight_capacity_bonus": "999 kg",
+    "material_thickness": 2,
+    "flags": [ "AURA", "WATERPROOF", "OVERSIZE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
     "id": "muramana",
     "type": "GENERIC",
     "symbol": "/",
@@ -1706,9 +2396,9 @@
         {
           "has": "WIELD",
           "condition": "ALWAYS",
-          "hit_you_effect": [ { "id": "mura_dmg" } ],
+          "hit_you_effect": [ { "id": "mura_dmg" },{ "id": "mura_regen" } ],
           "values": [
-            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "MANA_CAP", "add": 5000 },
             { "value": "STRENGTH", "add": 5 }
           ]
         }
@@ -1754,7 +2444,7 @@
           "values": [
             { "value": "MANA_CAP", "add": 3000 },
             { "value": "INTELLIGENCE", "add": 10 },
-            { "value": "MANA_REGEN", "multiply": 2 }
+            { "value": "MANA_REGEN", "multiply": 1 }
           ]
         }
       ]
@@ -1765,6 +2455,40 @@
     "category": "weapons",
     "to_hit": 3
   },
+  
+  
+  {
+    "id": "rabadons",
+    "type": "ARMOR",
+    "name": "Rabadon's Deathcap",
+    "description": "A purple cap with a gaping maw fixed in a perpetual smile, something about this hat gives a nasty aura.",
+    "weight": "390 g",
+    "volume": "2 L",
+    "price": "95 USD",
+    "material": [ "cotton" ],
+    "symbol": "^",
+    "color": "red",
+    "covers": [ "head" ],
+    "coverage": 50,
+    "encumbrance": 11,
+    "warmth": 7,
+    "material_thickness": 2,
+    "environmental_protection": 2,
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "INTELLIGENCE", "add": 10 },
+            { "value": "INTELLIGENCE", "multiply": 0.5 }
+          ]
+        }
+      ]
+    },
+    "flags": [ "VARSIZE" ]
+  },
+  
   {
     "id": "seraphs_embrace",
     "type": "TOOL",
@@ -1793,7 +2517,7 @@
           "has": "WIELD",
           "condition": "ALWAYS",
           "values": [
-            { "value": "MANA_CAP", "add": 3000 },
+            { "value": "MANA_CAP", "add": 6000 },
             { "value": "INTELLIGENCE", "add": 10 },
             { "value": "MANA_REGEN", "multiply": 2 }
           ]

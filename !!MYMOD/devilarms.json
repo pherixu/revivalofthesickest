@@ -233,6 +233,456 @@
     "min_range": 10,
     "max_range": 10
   },
+  
+  
+  {
+    "type": "effect_type",
+    "id": "guinsoo",
+    "name": [ "Guinsoo's Rage" ],
+    "desc": [ "you move with ninja-like swiftness" ],
+    "apply_message": "Your rage builds with each strike!",
+    "remove_message": "You return to your normal speed.",
+    "rating": "good",
+    "max_intensity": 4,
+    "max_duration": "30 s",
+    "base_mods": { "dex_mod": [ 2 ], "str_mod": [ 2 ], "speed_mod": [ 50 ] },
+    "scaling_mods": { "dex_mod": [ 2 ], "str_mod": [ 2 ], "speed_mod": [ 50 ] }
+  },
+  
+  {
+    "id": "guinsoo_haste",
+    "type": "SPELL",
+    "name": "Guinsoo's Haste",
+    "description": "You throttle your gunblade engine.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "guinsoo",
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "base_casting_time": 1,
+    "base_energy_cost": 1,
+    "max_level": 1,
+    "min_duration": 3000,
+    "max_duration": 3000,
+    "duration_increment": 600
+  },
+  
+  
+ {
+    "id": "guinsoo_onhit",
+    "type": "SPELL",
+    "name": "Rageblade Prov",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "extra_effects": [ { "id": "guinsoo_haste" }	],
+    "max_level": 10,
+    "min_damage": 30,
+    "max_damage": 30,
+    "base_casting_time": 0,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_range": 2,
+    "max_range": 2,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "none",
+    "sound_description": "rage-fueled strikes rend your target!"
+  },
+  {
+    "id": "rageblade",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Guinsoo's Rageblade"},
+    "description": "A blade once used by a berserker to defend his homeland.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "guinsoo_onhit", "once_in": 2 } ],
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "MOVE_COST", "add": -20 },
+            { "value": "ATTACK_COST", "add": -20 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 },
+            { "value": "DEXTERITY", "multiply": 0.2 },
+            { "value": "STRENGTH", "multiply": 0.2 }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  
+  {
+    "id": "charge_shot",
+    "type": "GUNMOD",
+    "name": { "str": "Charged shot" },
+    "description": "This special capacitor inside the buster cannon allows you to overcharge the UPS intake and shoot a large explosive blast of energy.",
+    "weight": "1 g",
+    "volume": "0 ml",
+    "price": "850 USD",
+    "price_postapoc": "0 cent",
+    "material": [ "steel" ],
+    "symbol": ":",
+    "color": "light_red",
+    "location": "mechanism",
+    "gun_data": {
+      "skill": "rifle",
+      "range": 30,
+    "ups_charges": 50,
+      "ranged_damage": { "damage_type": "heat", "amount": 100, "armor_penetration": 10 },
+      "ammo_effects": ["EXPLOSIVE", "WIDE", "INCENDIARY"  ],
+      "durability": 10
+    },
+    "flags": [ "IRREMOVABLE" ]
+  },
+  
+  {
+    "id": "xbow_arm_mod",
+    "weapon_category": [ "S_XBOWS" ],
+    "type": "GUNMOD",
+    "name": { "str": "integrated repeating crossbow" },
+    "description": "A miniature crossbow fitted over the wrist of the prosthetic arm, able to hold up to 10 bolts of any kind, and has an ergonomic magazine slot to help reduce reloading times.",
+    "weight": "1450 g",
+    "volume": "500 ml",
+    "price": "500 USD",
+    "price_postapoc": "15 USD",
+    "material": [ "steel", "wood" ],
+    "symbol": ":",
+    "color": "light_red",
+    "location": "rail",
+    "mod_target_category": [ [ "RIFLES" ], [ "MACHINE_GUNS" ], [ "GATLING_GUNS" ], [ "SHOTGUNS" ], [ "M_XBOWS" ] ],
+    "gun_data": {
+      "ammo": "bolt",
+      "skill": "rifle",
+      "range": 15,
+      "ranged_damage": { "damage_type": "stab", "amount": 40, "armor_penetration": 10 },
+      "dispersion": 250,
+      "durability": 10,
+      "loudness": 10,
+      "clip_size": 10,
+	  "reload": 50
+    },
+    "dispersion_modifier": 1,
+    "flags": [ "STR_RELOAD", "NON_FOULING" ]
+  },
+  
+  {
+    "id": "cannon_prosthetic",
+    "copy-from": "pistol_energy",
+    "type": "GUN",
+    "name": { "str": "Devil-hunting Cannon Arm" },
+    "description": "A weapon used by an unsung warrior, lost in the struggles of fate.",
+    "weight": "680 g",
+    "volume": "1 L",
+    "price": "7200 USD",
+    "price_postapoc": "55 USD",
+    "material": [ "steel", "plastic" ],
+    "color": "magenta",
+	"built_in_mods": ["xbow_arm_mod"],
+    "range": 25,
+    "ammo": "cannon",
+    "ranged_damage": { "damage_type": "bash", "amount": 50, "armor_penetration": 10 },
+	"modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ]],
+    "dispersion": 1,
+    "loudness": 7,
+	"clip_size": 1,
+    "armor_data": { "covers": [ "hand_either" ],"encumbrance": 5, "coverage": 5 },
+    "ammo_effects": [ "WIDE", "EXPLOSIVE", "INCENDIARY" ]
+  },
+  
+  {
+    "id": "x_buster",
+    "copy-from": "pistol_energy",
+    "type": "GUN",
+    "name": { "str": "X-Buster" },
+    "description": "This weapon was reluctantly made by a scientist who believed humans and robots could coexist in harmony. The last remnant of his legacy is this weapon: a tool designed for hunting reploids, the very creations he believed would usher an era of peace between humans and robots. One can only imagine, was there any hope of escaping fate in the first place?",
+    "weight": "680 g",
+    "volume": "1 L",
+    "price": "7200 USD",
+    "price_postapoc": "55 USD",
+    "material": [ "steel", "plastic" ],
+    "color": "magenta",
+	"built_in_mods": ["charge_shot"],
+    "range": 25,
+    "ranged_damage": { "damage_type": "heat", "amount": 20, "armor_penetration": 10 },
+	"modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ]],
+    "dispersion": 1,
+    "loudness": 7,
+    "ups_charges": 10,
+    "armor_data": { "covers": [ "hand_either" ],"encumbrance": 5, "coverage": 5 },
+    "ammo_effects": [ "WIDE", "INCENDIARY" ]
+  },
+  {
+    "id": "vile_shot",
+    "type": "SPELL",
+    "name": "Vile Stun Shot",
+    "description": "A stasis-blast freezes your target in place.",
+    "valid_targets": [ "hostile", "ground" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": -1000,
+    "max_damage": -1000,
+    "message": "A color-negative aura holds even time still.",
+    "min_range": 15,
+    "max_range": 15
+  },
+  
+  {
+    "id": "vile_onslaught",
+    "type": "GUNMOD",
+    "name": { "str": "Vile onslaught" },
+    "description": "Vile has made some custom modifications to his shoulder cannon compared to the standard issue police unit. There is a makeshift capacitor resembling an ammo belt that allows for auxiliary multi-thread processors to aid in increasing the fire rate and lowering the UPS cost of the gun, though this can only be used to fire a barrage of 100 bullets.",
+    "weight": "1 g",
+    "volume": "0 ml",
+    "price": "850 USD",
+    "price_postapoc": "0 cent",
+    "material": [ "steel" ],
+    "symbol": ":",
+    "color": "light_red",
+    "location": "mechanism",
+    "gun_data": {
+      "skill": "rifle",
+      "range": 30,
+    "ups_charges": 1,
+      "ranged_damage": { "damage_type": "electric", "amount": 13, "armor_penetration": 13 },
+    "modes": [[ "AUTO", "vile onslaught", 100 ] ],
+      "ammo_effects": ["BOUNCE", "LARGE_BEANBAG", "WIDE"  ],
+      "durability": 10
+    },
+    "flags": [ "IRREMOVABLE" ]
+  },
+  {
+    "id": "vile_cannon",
+    "copy-from": "pistol_energy",
+    "type": "GUN",
+    "name": { "str": "Vile's Shoulder Cannon" },
+    "description": "A large shoulder-mounted minigun that shoots energy projectiles at a high fire rate, considered overkill to most though it's actually a standard issue police weapon in 20XX.",
+    "weight": "680 g",
+    "volume": "1 L",
+    "price": "7200 USD",
+    "price_postapoc": "55 USD",
+    "material": [ "steel", "plastic" ],
+    "color": "magenta",
+	"built_in_mods": ["vile_onslaught"],
+    "range": 20,
+    "ranged_damage": { "damage_type": "heat", "amount": 20, "armor_penetration": 10 },
+    "modes": [ [ "DEFAULT", "low auto", 6 ], [ "AUTO", "high auto", 18 ] ],
+    "dispersion": 1,
+    "loudness": 7,
+    "ups_charges": 10,
+    "armor_data": { "covers": [ "torso" ],"encumbrance": 15, "coverage": 5 },
+    "ammo_effects": [ "WIDE", "INCENDIARY" ]
+  },
+  
+  {
+    "id": "pineapple_spell",
+    "type": "SPELL",
+    "name": { "str": "Pineapple Surprise!" },
+    "description": "summon 3-7 grenade manhacks",
+    "valid_targets": [ "ground" ],
+    "min_damage": 3,
+    "max_damage": 7,
+    "//": "level 20 will max out your number of summons",
+    "damage_increment": 1,
+    "max_level": 1,
+    "difficulty": 1,
+    "effect": "summon",
+    "effect_str": "mon_grenade_hack",
+    "energy_source": "HP",
+    "base_energy_cost": 1,
+    "//2": "one minute",
+    "base_casting_time": 1,
+    "min_range": 17,
+    "max_range": 17,
+    "min_aoe": 4,
+    "max_aoe": 4,
+    "flags": [ "SOMATIC", "PERMANENT", "NO_EXPLOSION_VFX" ],
+    "min_duration": 120000,
+    "max_duration": 315000,
+    "duration_increment": 4000
+  },
+  
+
+  {
+    "type": "COMESTIBLE",
+    "id": "pineapple_surprise",
+    "name": { "str": "Pineapple Surprise" },
+    "weight": "220 g",
+    "color": "pink",
+    "spoils_in": "365 days",
+    "comestible_type": "FOOD",
+    "symbol": "*",
+    "quench": 0,
+    "healthy": -1,
+    "price_postapoc": "250 cent",
+    "use_action": { "type": "cast_spell", "spell_id": "pineapple_spell", "no_fail": true, "level": 1, "need_wielding": true },
+    "calories": 0,
+    "description": "Use to summon 2-7 grenade hacks at will. Caution: using this puts your name into the dead pool.",
+    "price": "0 cent",
+    "material": "flesh",
+    "volume": "250 ml",
+    "parasites": 0,
+    "stack_size": 10,
+    "fun": 0,
+    "flags": [ "CARNIVORE_OK" ]
+  },
+  
+  
+  {
+    "id": "lead_spray",
+    "type": "SPELL",
+    "name": { "str": "Lead Spray" },
+    "description": "Deals bullet damage",
+    "valid_targets": [ "hostile" ],
+    "min_damage": 100,
+    "max_damage": 100,
+    "damage_increment": 15,
+    "min_range": 25,
+    "max_range": 25,
+    "min_aoe": 7,
+    "max_aoe": 7,
+    "effect": "target_attack",
+    "base_casting_time": 150,
+    "base_energy_cost": 2500,
+    "damage_type": "bullet",
+    "difficulty": 1,
+    "max_level": 1,
+    "flags": [ "VERBAL", "SOMATIC", "LOUD" ],
+    "energy_source": "MANA"
+  },
+  
+  {
+    "id": "redtape_gun",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "'Red Tape' dual-rotor HMG" },
+    "description": "...",
+    "weight": "1320 g",
+    "volume": "3500 ml",
+    "price": "9700 USD",
+    "price_postapoc": "100 USD",
+    "to_hit": -5,
+    "material": [ "superalloy", "iflesh" ],
+    "symbol": "[",
+    "looks_like": "m79",
+	"charges_per_use": 100,
+	"gun_data": {
+      "ammo": "223",
+      "skill": "rifle",
+      "range": 25,
+      "clip_size": 600,
+	  "modes": [ [ "DEFAULT", "low auto", 12 ], [ "AUTO", "high auto", 36 ] ],
+    "valid_mod_locations": [ [ "brass catcher", 1 ], [ "sling", 1 ],[ "mechanism", 4 ], [ "accessories", 4 ], [ "rail", 2 ], [ "sights", 2 ] ],
+    "ranged_damage": { "damage_type": "bullet", "amount": 5, "armor_penetration": 13 },
+      "dispersion": 99,
+      "loudness": 10,
+	  "ammo_effects": [ "FLARE" ],
+	  "reload_noise": "pshzt."
+    },
+    "color": "green",
+    "covers": [ "hand_either" ],
+    "coverage": 0,
+    "encumbrance": 15,
+    "warmth": 15,
+    "material_thickness": 5,
+    "flags": [ "RESTRICT_HANDS", "WATER_FRIENDLY", "NO_SALVAGE" ],
+    "use_action": { "type": "cast_spell", "spell_id": "lead_spray", "no_fail": true, "level": 1, "need_wielding": true }
+  },
+ 
+  {
+    "id": "ebony_ivory",
+    "copy-from": "pistol_base",
+    "type": "GUN",
+    "name": { "str": "Ebony & Ivory" },
+    "//": "You can get 'em for over US$1K if you want.  This is a fairly cheap remake.",
+    "description": "These two ornate twin pistols are modified with extended barrels and custom receivers to shoot .308 rounds out of an enlarged m1911 chassis. On the left face along the barrel of Ebony is engraved the words 'Ebony & Ivory' in golden cursive font, while along the right face of Ivory reads 'For Tony Redgrave, By .45 ACP Art Warks'. Little about this weapons construction makes sense, though it is certainly a suitable tool for killing demons.",
+    "weight": "1120 g",
+    "volume": "500 ml",
+    "price": "784 USD",
+    "price_postapoc": "25 USD",
+    "to_hit": -2,
+    "ascii_picture": "m1911",
+    "bashing": 12,
+    "material": [ "steel", "plastic" ],
+    "color": "light_gray",
+    "ammo": "308",
+    "durability": 7,
+    "min_cycle_recoil": 10,
+    "clip_size": 60,
+    "blackpowder_tolerance": 48,
+    "modes": [ [ "DEFAULT", "semi", 2 ], [ "AUTO", "auto", 6 ] ],
+    "valid_mod_locations": [
+      [ "accessories", 2 ],
+      [ "barrel", 2 ],
+      [ "bore", 2 ],
+      [ "brass catcher", 2 ],
+      [ "grip", 2 ],
+      [ "mechanism", 4 ],
+      [ "magazine", 2 ],
+      [ "muzzle", 2 ],
+      [ "rail", 2 ],
+      [ "sights", 2 ],
+      [ "stock", 2 ],
+      [ "underbarrel", 2 ]
+    ]
+  },
+  
+  {
+    "id": "devil_HMG",
+    "copy-from": "mg_base",
+    "type": "GUN",
+    "name": { "str_sp": "DH50-MG 'killing machine'" },
+    "description": "This monstrous weapon resembles a browning HMG, though a dual barrel firing mechanism protrudes from the custom-built receiver, allowing for shots to be fired out of each barrel in an alternating pattern. The gigantic gun also lacks a mount attachment, and it's trigger system rests on top of the weapon where the sights would normally go, indicating that this weapon is somehow meant to be wielded without even bracing it against your shoulder, rather it's meant to be held in a reverse grip similar to a tonfa. Is it the weapon itself that earns the title, or simply the previous user capable of wielding this behemoth?",
+    "weight": "38000 g",
+    "volume": "5 L",
+    "price": "18 kUSD",
+    "price_postapoc": "100 USD",
+    "material": "steel",
+    "ammo": "50",
+    "range": 110,
+    "dispersion": 250,
+    "barrel_length": "1250 ml",
+    "min_strength": 28,
+    "clip_size": 300,
+    "modes": [ [ "DEFAULT", "semi", 2 ], [ "AUTO", "auto", 6 ] ],
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "barrel", 2 ],
+      [ "bore", 2 ],
+      [ "brass catcher", 1 ],
+      [ "sling", 1 ],
+      [ "mechanism", 4 ],
+      [ "muzzle", 2 ],
+      [ "rail", 2 ],
+      [ "underbarrel", 2 ]
+    ],
+    "magazines": [ [ "50", [ "belt50" ] ] ],
+    "flags": [ "STR_DRAW", "STR_RELOAD" ]
+  },
+  
   {
     "id": "gerbera_breaker",
     "type": "TOOL_ARMOR",
@@ -511,7 +961,687 @@
     "dont_recover_one_in": 10
   },
 
+  {
+    "id": "deaths_dance",
+    "type": "TOOL",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "Death's Dance"},
+    "description": "A scimitar used by a renowned pirate to bring himself from the brink of death after a bad deal lead to his demise. Some say he still roams the seas seeking revenge.",
+    "price": "400 USD",
+    "material": "rune",
+    "flags": [ "SHEATH_SWORD", "UNBREAKABLE_MELEE", "MAGIC_FOCUS" ],
+    "ammo": "bloodgem",
+    "max_charges": 1,
+    "charges_per_use": 1,
+    "use_action": [
+      {
+        "type": "cast_spell",
+        "spell_id": "ignore_pain",
+        "no_fail": true,
+        "level": 1,
+        "need_wielding": true
+      }
+    ],
+	"relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": 25 },
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_ACID", "add": -10 },
+            { "value": "ARMOR_COLD", "add": -10 },
+            { "value": "ARMOR_HEAT", "add": -10 },
+            { "value": "ARMOR_ELEC", "add": -10 },
+            { "value": "MOVE_COST", "add": -10 },
+            { "value": "ATTACK_COST", "add": -10 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "STRENGTH", "add": 1 }
+          ]
+        }
+      ]
+    },
+    "weight": "100 g",
+    "volume": "1 L",
+    "bashing": 19,
+    "cutting": 53,
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "to_hit": 6
+  },
+  
+  {
+    "id": "ignore_pain",
+    "type": "SPELL",
+    "name": { "str": "Ignore Pain" },
+    "description": "With an intense ritual that resembles crossfit, you manage to put some of your pain at bay.",
+    "valid_targets": [ "self" ],
+    "min_damage": 75,
+    "max_damage": 75,
+    "damage_increment": 2,
+    "max_level": 1,
+    "effect": "recover_energy",
+    "effect_str": "PAIN",
+    "energy_source": "STAMINA",
+    "base_casting_time": 100,
+    "base_energy_cost": 3000,
+    "energy_increment": 500,
+    "flags": [ "SOMATIC", "VERBAL", "PAIN_NORESIST", "NO_EXPLOSION_VFX" ],
+    "final_energy_cost": 3000
+  },
+  {
+    "id": "taunt",
+    "type": "SPELL",
+    "name": "Taunt",
+    "description": "reality around you warps around you and all monsters are frozern in place for 10 seconds.",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "extra_effects": [ { "id": "style_up", "hit_self": true}	],
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "min_damage": 500,
+    "max_damage": 500,
+    "message": "Go ahead, show me what you got!",
+    "min_range": 10,
+    "max_range": 10
+  },
+  {
+    "type": "effect_type",
+    "id": "style_rating",
+    "name": [
+      "Dope!",
+      "Crazy!",
+      "Blastin!",
+      "Alright!!",
+      "Sweet!!!",
+      "SShowtime!!!",
+      "SSStylish!!!"
+    ],
+    "desc": [ "I love this! This is what I live for! I'm absolutely crazy about it!" ],
+    "rating": "good",
+    "max_intensity": 7,
+    "max_duration": "1 m",
+    "int_add_val": -1,
+    "int_decay_tick": 1600,
+    "base_mods": { "dex_mod": [2], "stamina_min": [ 250 ], "str_mod": [2], "speed_mod": [ 20 ] },
+    "scaling_mods": { "dex_mod": [1],"stamina_min": [ 150 ], "str_mod": [1], "speed_mod": [ 20 ] },
+    "show_in_info": true
+  },
+  
+  {
+    "type": "effect_type",
+    "id": "hastega1",
+    "name": [ "Hastega" ],
+    "desc": [ "the 4 heroes of light guide your way" ],
+    "apply_message": "Your speed is boosted to superhuman levels!",
+    "remove_message": "You return to your normal speed.",
+    "rating": "good",
+    "base_mods": { "dex_mod": [ 4 ], "speed_mod": [ 600 ] }
+  },
+  
+  
+  {
+    "id": "style_up",
+    "type": "SPELL",
+    "name": "Rank up style",
+    "description": "style spell extra effect.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "style_rating",
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "max_damage": 1,
+    "min_damage": 1,
+    "base_casting_time": 1,	
+    "base_energy_cost": 1,
+    "max_level": 1,
+    "min_duration": 6000,
+    "max_duration": 6000,
+    "duration_increment": 600
+  },
+  {
+    "type": "tool_quality",
+    "id": "THE_WORLD",
+    "name": "world-stopping ability"
+  },
+  {
+    "id": "spell_components_theworld",
+    "type": "requirement",
+    "qualities": [ { "id": "THE_WORLD", "level": 1 } ]
+  },
+  
+  {
+    "id": "stop",
+    "type": "SPELL",
+    "name": "Quick",
+    "description": "temporarily freeze an enemy in time.",
+    "valid_targets": [ "self" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "MANA",
+    "components": "spell_components_theworld",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 225,
+    "base_energy_cost": 2000,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": -1500,
+    "max_damage": -1500,
+    "message": "A color-negative aura holds even time still.",
+    "min_range": 10,
+    "max_range": 10
+  },
+  
+  {
+    "id": "quick",
+    "type": "SPELL",
+    "name": "Quick",
+    "description": "reality around you warps around you and all monsters are frozern in place for 15 seconds.",
+    "valid_targets": [ "self" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "MANA",
+    "components": "spell_components_theworld",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 225,
+    "base_energy_cost": 2000,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": 1500,
+    "max_damage": 1500,
+    "message": "A color-negative aura holds even time still.",
+    "min_range": 10,
+    "max_range": 10
+  },
+  
+  
+  {
+    "id": "the_world",
+    "type": "SPELL",
+    "name": "The World!",
+    "description": "reality around you warps around you and all monsters are frozern in place for 15 seconds.",
+    "valid_targets": [ "self" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "components": "spell_components_theworld",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": 1500,
+    "max_damage": 1500,
+    "message": "A color-negative aura holds even time still.",
+    "min_range": 1,
+    "max_range": 10
+  },
+  
+  {
+    "id": "spell_components_chronohaste",
+    "type": "requirement",
+    "components": [ [ [ "raw_bloodgem", 5 ] ] ]
+  },
+  {
+    "id": "chrono_haste",
+    "type": "SPELL",
+    "name": "Time to Spare",
+    "description": "You give yourself 5 free turns.",
+    "valid_targets": [ "self" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "components": "spell_components_chronohaste",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": 500,
+    "max_damage": 500,
+    "message": "Speed up baby, Don't be slow!",
+    "min_range": 1,
+    "max_range": 10
+  },
+  {
+    "id": "chrono_sap",
+    "type": "SPELL",
+    "name": "Temporal Sap",
+    "description": "You stun the enemy for 5 turns.",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "NO_LEGS" ],
+    "effect": "mod_moves",
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "max_level": 10,
+    "base_casting_time": 25,
+    "base_energy_cost": 100,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": -500,
+    "max_damage": -500,
+    "message": "A color-negative aura holds even time still.",
+    "min_range": 1,
+    "max_range": 10
+  },
+  {
+    "id": "hastega",
+    "type": "SPELL",
+    "name": "Hastega",
+    "description": "A more powerful version of haste, triple the speed for less duration.",
+    "valid_targets": [ "self" ],
+    "flags": [ "LOUD", "NO_FAIL", "NO_LEGS" ],
+    "effect": "target_attack",
+    "effect_str": "hastega1",
+    "energy_source": "MANA",
+    "difficulty": 1,
+    "base_casting_time": 100,
+    "base_energy_cost": 100,
+    "max_level": 1,
+    "min_duration": 33000,
+    "max_duration": 33000,
+    "duration_increment": 600
+  },
+{
+    "id": "devil_step",
+    "type": "SPELL",
+    "name": "Devil Hunter Step",
+    "description": "You tumble gracefully a short distance.",
+    "effect": "dash",
+    "valid_targets": [ "ground" ],
+    "flags": [ "SILENT", "NO_LEGS", "NO_EXPLOSION_VFX", "NO_HANDS" ],
+    "min_range": 5,
+    "max_range": 5,
+    "max_level": 10,
+    "difficulty": -10,
+    "base_casting_time": 10,
+	"final_casting_time": 1, 
+	"energy_source": "STAMINA", 
+	"base_energy_cost": 1000,
+    "range_increment": 1,
+	"casting_time_increment": -10,
+	"energy_increment": -100
+  },
+{
+    "id": "force_leap",
+    "type": "SPELL",
+    "name": "Force Leap",
+    "description": "You leap, channelling the forces of the univers to enhance your physical capabilities.",
+    "effect": "dash",
+    "valid_targets": [ "ground" ],
+    "flags": [ "SILENT", "NO_EXPLOSION_VFX", "NO_HANDS" ],
+    "min_range": 17,
+    "max_range": 27,
+    "max_level": 10,
+    "difficulty": -10,
+    "base_casting_time": 100,
+	"final_casting_time": 100, 
+	"energy_source": "STAMINA", 
+	"base_energy_cost": 1500,
+	"final_energy_cost": 500, 
+    "range_increment": 1,
+	"casting_time_increment": -10,
+	"energy_increment": -100
+  },
+  {
+    "id": "force_push",
+    "type": "SPELL",
+    "name": "Force Push",
+    "description": "Channel the natural energy of the universe to push an enemy.",
+    "effect": "directed_push",
+    "valid_targets": [ "hostile", "ally" ],
+    "flags": [ "SILENT", "NO_EXPLOSION_VFX", "RANDOM_DAMAGE", "SOMATIC" ],
+    "min_range": 10,
+    "max_range": 20,
+    "max_level": 10,
+    "difficulty": -10,
+	"min_damage": 2, 
+	"max_damage": 3, 
+    "base_casting_time": 100,
+	"final_casting_time": 10, 
+	"energy_source": "STAMINA", 
+	"base_energy_cost": 1000,
+	"final_energy_cost": 100, 
+    "range_increment": 1,
+	"casting_time_increment": -10,
+	"energy_increment": -100
+  },
 
+  {
+    "id": "lightsaber_ceruleum",
+    "copy-from": "broadsword",
+    "type": "GENERIC",
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "name": { "str": "blue lightsaber" },
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "weight": "1133 g",
+    "volume": "1750 ml",
+    "price": "1200 USD",
+    "price_postapoc": "50 USD",
+    "to_hit": 4,
+    "bashing": 1,
+    "cutting": 1,
+    "material": "beskar",
+    "symbol": "/",
+    "color": "light_gray",
+    "techniques": [ "WBLOCK_2" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 9 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "saber_cold" } ]
+        }
+      ]
+    },
+    "use_action": [
+      {
+        "menu_text": "Power Off",
+        "type": "transform",
+        "target": "saber_hilt_ceruleum",
+        "msg": "psshht-"
+      }
+    ],
+    "flags": [ "UNBREAKABLE_MELEE", "NO_UNWIELD", "SHEATH_SWORD", "NONCONDUCTIVE" ]
+  },
+
+  {
+    "type": "TOOL",
+    "id": "saber_hilt_ceruleum",
+    "name": { "str": "lightsaber hilt (blue)"},
+    "copy-from": "baton",
+    "material": "beskar",
+    "qualities": [ [ "WELD", 2 ] ],
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [
+          "iron",
+          "steel",
+          "budget_steel",
+          "hardsteel",
+          "aluminum",
+          "copper",
+          "bronze",
+          "silver",
+          "gold",
+          "platinum",
+          "superalloy",
+          "glass"
+        ],
+        "skill": "fabrication",
+        "tool_quality": 10,
+        "cost_scaling": 0.1,
+        "move_cost": 500
+      },
+      {
+        "menu_text": "Power On",
+        "type": "transform",
+        "target": "lightsaber_ceruleum",
+        "msg": "vwooom!"
+      }
+    ]
+  },
+
+  {
+    "id": "lightsaber_crimson",
+    "copy-from": "broadsword",
+    "type": "GENERIC",
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "name": { "str": "red lightsaber" },
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "weight": "1133 g",
+    "volume": "1750 ml",
+    "price": "1200 USD",
+    "price_postapoc": "50 USD",
+    "to_hit": 4,
+    "bashing": 1,
+    "cutting": 1,
+    "material": "beskar",
+    "symbol": "/",
+    "color": "light_gray",
+    "techniques": [ "WBLOCK_2" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 9 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "saber_fire" } ]
+        }
+      ]
+    },
+    "use_action": [
+      {
+        "menu_text": "Power Off",
+        "type": "transform",
+        "target": "saber_hilt_crimson",
+        "msg": "psshht-"
+      }
+    ],
+    "flags": [ "UNBREAKABLE_MELEE", "NO_UNWIELD", "SHEATH_SWORD", "NONCONDUCTIVE" ]
+  },
+
+  {
+    "type": "TOOL",
+    "id": "saber_hilt_crimson",
+    "name": { "str": "lightsaber hilt (red)"},
+    "copy-from": "baton",
+    "material": "beskar",
+    "qualities": [ [ "WELD", 2 ] ],
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [
+          "iron",
+          "steel",
+          "budget_steel",
+          "hardsteel",
+          "aluminum",
+          "copper",
+          "bronze",
+          "silver",
+          "gold",
+          "platinum",
+          "superalloy",
+          "glass"
+        ],
+        "skill": "fabrication",
+        "tool_quality": 10,
+        "cost_scaling": 0.1,
+        "move_cost": 500
+      },
+      {
+        "menu_text": "Power On",
+        "type": "transform",
+        "target": "lightsaber_crimson",
+        "msg": "vwooom!"
+      }
+    ]
+  },
+
+  {
+    "id": "lightsaber_virid",
+    "copy-from": "broadsword",
+    "type": "GENERIC",
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "name": { "str": "green lightsaber" },
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "weight": "1133 g",
+    "volume": "1750 ml",
+    "price": "1200 USD",
+    "price_postapoc": "50 USD",
+    "to_hit": 4,
+    "bashing": 1,
+    "cutting": 1,
+    "material": "beskar",
+    "symbol": "/",
+    "color": "light_gray",
+    "techniques": [ "WBLOCK_2" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 9 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "saber_acid" } ]
+        }
+      ]
+    },
+    "use_action": [
+      {
+        "menu_text": "Power Off",
+        "type": "transform",
+        "target": "saber_hilt_virid",
+        "msg": "psshht-"
+      }
+    ],
+    "flags": [ "UNBREAKABLE_MELEE", "NO_UNWIELD", "SHEATH_SWORD", "NONCONDUCTIVE" ]
+  },
+
+  {
+    "type": "TOOL",
+    "id": "saber_hilt_virid",
+    "name": { "str": "lightsaber hilt (green)"},
+    "copy-from": "baton",
+    "material": "beskar",
+    "qualities": [ [ "WELD", 2 ] ],
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [
+          "iron",
+          "steel",
+          "budget_steel",
+          "hardsteel",
+          "aluminum",
+          "copper",
+          "bronze",
+          "silver",
+          "gold",
+          "platinum",
+          "superalloy",
+          "glass"
+        ],
+        "skill": "fabrication",
+        "tool_quality": 10,
+        "cost_scaling": 0.1,
+        "move_cost": 500
+      },
+      {
+        "menu_text": "Power On",
+        "type": "transform",
+        "target": "lightsaber_virid",
+        "msg": "vwooom!"
+      }
+    ]
+  },
+  {
+    "id": "lightsaber_argent",
+    "copy-from": "broadsword",
+    "type": "GENERIC",
+    "category": "weapons",
+    "weapon_category": [ "1H_SWORDS", "MEDIEVAL_SWORDS", "DUELING_SWORDS" ],
+    "name": { "str": "white lightsaber" },
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "weight": "1133 g",
+    "volume": "1750 ml",
+    "price": "1200 USD",
+    "price_postapoc": "50 USD",
+    "to_hit": 4,
+    "bashing": 1,
+    "cutting": 1,
+    "material": "beskar",
+    "symbol": "/",
+    "color": "light_gray",
+    "techniques": [ "WBLOCK_2" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 9 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [ { "id": "saber_elec" } ]
+        }
+      ]
+    },
+    "use_action": [
+      {
+        "menu_text": "Power Off",
+        "type": "transform",
+        "target": "saber_hilt_argent",
+        "msg": "psshht-"
+      }
+    ],
+    "flags": [ "UNBREAKABLE_MELEE","NO_UNWIELD", "SHEATH_SWORD", "NONCONDUCTIVE" ]
+  },
+
+  {
+    "type": "TOOL",
+    "id": "saber_hilt_argent",
+    "name": { "str": "lightsaber hilt (white)"},
+    "copy-from": "baton",
+    "material": "beskar",
+    "qualities": [ [ "WELD", 2 ] ],
+    "description": "A casing meant to house magical crystals that project super-heated plasma stabilized into a thin rod that mimics a sword. While the hilt is turned on you are unable to drop or unwield this item. While inactive it could be used to project small amounts of energy to act as a welding tool.",
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [
+          "iron",
+          "steel",
+          "budget_steel",
+          "hardsteel",
+          "aluminum",
+          "copper",
+          "bronze",
+          "silver",
+          "gold",
+          "platinum",
+          "superalloy",
+          "glass"
+        ],
+        "skill": "fabrication",
+        "tool_quality": 10,
+        "cost_scaling": 0.1,
+        "move_cost": 500
+      },
+      {
+        "menu_text": "Power On",
+        "type": "transform",
+        "target": "lightsaber_argent",
+        "msg": "vwooom!"
+      }
+    ]
+  },
+  
+  
   {
     "id": "argentbow",
     "copy-from": "bow_base",
@@ -1097,7 +2227,7 @@
     "apply_message": "Move fast baby, don't be slow... Step aside, reload, time to go!",
     "remove_message": "You return to your normal speed.",
     "rating": "good",
-    "base_mods": { "stamina_min": [ 150 ], "speed_mod": [ 300 ] }
+    "base_mods": { "stamina_min": [ 150 ], "speed_mod": [ 500 ] }
   },
   {
     "id": "rev_engine",
@@ -1113,8 +2243,8 @@
     "base_casting_time": 100,
     "base_energy_cost": 100,
     "max_level": 1,
-    "min_duration": 2000,
-    "max_duration": 2000,
+    "min_duration": 6000,
+    "max_duration": 6000,
     "duration_increment": 600
   },
   
@@ -1151,6 +2281,62 @@
     "description": "Bloodshot composed of Argentium primer that allows for a seemingly normal gunshot that inflicts grievous damage"
   },
 
+  {
+    "id": "holy_grenade",
+    "type": "TOOL",
+    "category": "weapons",
+    "name": { "str": "holy hand grenade" },
+    "description": "This is a heavenly-grade fragmentary hand grenade.  Use this item to pull the pin and light the fuse.  You will then have five turns before it explodes; throwing it would be a good idea.",
+    "weight": "397 g",
+    "volume": "250 ml",
+    "price": "15 USD",
+    "price_postapoc": "10 USD",
+    "to_hit": -1,
+    "bashing": 6,
+    "material": [ "steel" ],
+    "symbol": "*",
+    "color": "green",
+    "use_action": {
+      "target": "holy_grenade_act",
+      "msg": "You pull the pin on the grenade.",
+      "target_charges": 5,
+      "active": true,
+      "menu_text": "Pull pin",
+      "type": "transform"
+    },
+    "flags": [ "RADIO_MODABLE", "RADIO_INVOKE_PROC", "BOMB", "GRENADE" ]
+  },
+  {
+    "id": "holy_grenade_act",
+    "type": "TOOL",
+    "category": "weapons",
+    "name": { "str": "active holy hand grenade" },
+    "description": "This is an active grenade, and will explode any second now.  Better throw it!",
+    "weight": "397 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -1,
+    "bashing": 6,
+    "material": [ "steel" ],
+    "symbol": "*",
+    "color": "green",
+    "initial_charges": 5,
+    "max_charges": 5,
+    "turns_per_charge": 1,
+    "use_action": {
+      "type": "explosion",
+      "sound_volume": 0,
+      "sound_msg": "Tick.",
+      "no_deactivate_msg": "You've already pulled the %s's pin; try throwing it instead.",
+      "explosion": {
+        "damage": 100,
+        "radius": 7,
+        "fragment": { "impact": { "damage_type": "bullet", "amount": 150, "armor_multiplier": 2 }, "range": 6 }
+      }
+    },
+    "flags": [ "BOMB", "TRADER_AVOID" ]
+  },
 
   {
     "id": "aegis_armor",
@@ -1234,8 +2420,8 @@
     "max_damage": 350,
     "damage_increment": 1,
     "damage_type": "bash",
-    "min_range": 11,
-    "max_range": 11,
+    "min_range": 28,
+    "max_range": 28,
     "field_id": "fd_smoke",
     "min_aoe": 3,
     "max_aoe": 3,
@@ -1490,6 +2676,94 @@
     "base_casting_time": 300,
     "energy_source": "MANA"
   },
+
+ {
+    "id": "saber_elec",
+    "type": "SPELL",
+    "name": "lightsaber onhit",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 80,
+    "max_damage": 80,
+    "base_casting_time": 1,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 1,
+    "max_range": 1,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "electric",
+    "sound_description": "vwoom!"
+  },
+ {
+    "id": "saber_acid",
+    "type": "SPELL",
+    "name": "lightsaber onhit",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 80,
+    "max_damage": 80,
+    "base_casting_time": 1,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 1,
+    "max_range": 1,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "acid",
+    "sound_description": "vwoom!"
+  },
+
+ {
+    "id": "saber_fire",
+    "type": "SPELL",
+    "name": "lightsaber onhit",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 80,
+    "max_damage": 80,
+    "base_casting_time": 1,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 1,
+    "max_range": 1,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "fire",
+    "sound_description": "vwoom!"
+  },
+
+ {
+    "id": "saber_cold",
+    "type": "SPELL",
+    "name": "lightsaber onhit",
+    "description": "",
+    "effect": "target_attack",
+    "flags": [ "NO_LEGS" ],
+    "valid_targets": [ "hostile" ],
+    "max_level": 10,
+    "min_damage": 80,
+    "max_damage": 80,
+    "base_casting_time": 1,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 1,
+    "max_range": 1,
+    "energy_source": "STAMINA",
+    "difficulty": 1,
+    "damage_type": "cold",
+    "sound_description": "vwoom!"
+  },
+
 
  {
     "id": "elec_cone",

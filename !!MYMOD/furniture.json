@@ -659,7 +659,7 @@
     "looks_like": "f_exodii_scanner",
     "type": "TOOL",
     "name": "enchanted soul-forge altar",
-    "qualities": [ [ "SOULCRAFT", 1 ] ]
+    "qualities": [ [ "SOULCRAFT", 2 ], [ "SOUL_FORGE", 2 ]  ]
   },
   {
     "type": "furniture",
@@ -1103,7 +1103,7 @@
     "move_cost_mod": -1,
     "coverage": 30,
     "required_str": -1,
-    "crafting_pseudo_item": [ "fake_soulaltar" ],
+    "crafting_pseudo_item": [ "fake_cursedaltar" ],
 	"examine_action": "use_furn_fake_item",
     "flags": [ "BLOCKSDOOR", "MINEABLE", "EASY_DECONSTRUCT", "TRANSPARENT" ],
     "deconstruct": {
@@ -1137,16 +1137,7 @@
     "type": "TOOL",
     "name": "corrupted soul altar",
     "magazine_well": "250 ml",
-    "use_action": [
-     { "type": "cast_spell", "spell_id": "spawn_viridite", "no_fail": true, "level": 1, "need_wielding": false },
-      {
-        "menu_text": "Adjust Focusing Wavelength (red)",
-        "type": "transform",
-        "target": "fake_soulaltar3",
-        "msg": "Adjust the magical frequencies your circle is attuned to, currently green."
-      }
-    ],
-    "qualities": [ [ "SOULCRAFT", 1 ] ]
+    "qualities": [ [ "CURSED", 1 ] ]
   },
   
   {

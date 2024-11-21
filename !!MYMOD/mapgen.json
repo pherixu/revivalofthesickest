@@ -1,0 +1,34 @@
+[
+{
+    "type": "region_overlay",
+    "regions": [ "all" ],
+    "city": {
+      "houses": { "devil_tower_1": 50, "devil_tower_2": 50 }
+    },
+    "field_coverage": { "other": { "f_boulder_large": 0.98, "f_glow_boulder": 0.02 } }
+  },
+  {
+    "type": "city_building",
+    "id": "devil_tower_1",
+    "locations": [ "land" ],
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "deviltower1_ground_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "deviltower1_living_north" },
+      { "point": [ 0, 0, 2 ], "overmap": "deviltower1_golems_north" },
+      { "point": [ 0, 0, 3 ], "overmap": "deviltower1_study_north" },
+      { "point": [ 0, 0, 4 ], "overmap": "deviltower1_roof_north" }
+    ]
+  },
+  {
+    "type": "city_building",
+    "id": "devil_tower_2",
+    "locations": [ "land" ],
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "deviltower2_ground_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "deviltower2_stairs1_north" },
+      { "point": [ 0, 0, 2 ], "overmap": "deviltower2_stairs2_north" },
+      { "point": [ 0, 0, 3 ], "overmap": "deviltower2_study_north" },
+      { "point": [ 0, 0, 4 ], "overmap": "deviltower2_roof_north" }
+    ]
+  }
+]

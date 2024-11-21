@@ -1,0 +1,55 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower1_ground",
+    "copy-from": "generic_city_building",
+    "sym": "W",
+    "color": "light_blue",
+    "name": "devil tower"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower1_living",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower1_golems",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower1_study",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower1_roof",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower2_ground",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower2_stairs1",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower2_stairs2",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower2_study",
+    "copy-from": "deviltower1_ground"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "deviltower2_roof",
+    "copy-from": "deviltower1_ground"
+  }
+]
